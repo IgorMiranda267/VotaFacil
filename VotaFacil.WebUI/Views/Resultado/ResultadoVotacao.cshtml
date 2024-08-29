@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Resultado da Votação";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Resultado da Votação</h2>
+    <div class="row">
+        @for (int i = 0; i < 5; i++) // Supondo que você tenha 5 candidatos
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="~/images/candidato@i.jpg" class="card-img-top" alt="Foto do Candidato">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome do Candidato @i</h5>
+                        <p class="card-text">Descrição do Candidato @i</p>
+                        <p class="card-text"><strong>Votos: @Model.Candidatos[i].Votos</strong></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Adicione o link para o Bootstrap no seu layout -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">

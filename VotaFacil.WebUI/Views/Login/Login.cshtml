@@ -1,0 +1,36 @@
+﻿@model VotaFacil.WebUI.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post)) // Alterado para "Login" controller
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Username)
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Register", "Register", "Account")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var errorMessage = '@ViewBag.ErrorMessage';
+            if (errorMessage) {
+                alert(errorMessage); // Exibe o popup com a mensagem de erro
+            }
+        });
+    </script>
+}

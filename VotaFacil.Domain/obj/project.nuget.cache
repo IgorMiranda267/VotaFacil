@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "o6vUFHtkjgQT5eh06RqGt1cp/uES/1YJUgVsd8EtTPONnDv1yBZtTIWIdmcver/cVP1UdHyrrQn+/DbS5fNuJA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.Domain\\VotaFacil.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\431277\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.2\\microsoft.identitymodel.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\431277\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.2\\microsoft.identitymodel.jsonwebtokens.8.0.2.nupkg.sha512",
+    "C:\\Users\\431277\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.2\\microsoft.identitymodel.logging.8.0.2.nupkg.sha512",
+    "C:\\Users\\431277\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.2\\microsoft.identitymodel.tokens.8.0.2.nupkg.sha512",
+    "C:\\Users\\431277\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.2\\system.identitymodel.tokens.jwt.8.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotaFacil.WebUI", "VotaFacil.WebUI\VotaFacil.WebUI.csproj", "{033FE7C7-3E61-47F2-AFB8-3138C5075522}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotaFacil.Apllication", "VotaFacil.Apllication\VotaFacil.Apllication.csproj", "{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotaFacil.Domain", "VotaFacil.Domain\VotaFacil.Domain.csproj", "{F9BBF86A-6DE2-45E4-917E-D03386B6172C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotaFacil.Infrastructure", "VotaFacil.Infrastructure\VotaFacil.Infrastructure.csproj", "{0FDB41D8-071A-4D43-AAE8-C6BEA48F1538}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotaFacil.CrossCutting", "VotaFacil.CrossCutting\VotaFacil.CrossCutting.csproj", "{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{033FE7C7-3E61-47F2-AFB8-3138C5075522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033FE7C7-3E61-47F2-AFB8-3138C5075522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033FE7C7-3E61-47F2-AFB8-3138C5075522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033FE7C7-3E61-47F2-AFB8-3138C5075522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9BBF86A-6DE2-45E4-917E-D03386B6172C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9BBF86A-6DE2-45E4-917E-D03386B6172C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9BBF86A-6DE2-45E4-917E-D03386B6172C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9BBF86A-6DE2-45E4-917E-D03386B6172C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FDB41D8-071A-4D43-AAE8-C6BEA48F1538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FDB41D8-071A-4D43-AAE8-C6BEA48F1538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FDB41D8-071A-4D43-AAE8-C6BEA48F1538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FDB41D8-071A-4D43-AAE8-C6BEA48F1538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38C80172-AF59-4B32-BEB4-3F601158F5AD}
+	EndGlobalSection
+EndGlobal

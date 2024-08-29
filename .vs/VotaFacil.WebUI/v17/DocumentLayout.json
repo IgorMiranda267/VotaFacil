@@ -1,0 +1,179 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\testes\\votafacil\\votafacil.webui\\votafacil.webui\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\testes\\votafacil\\votafacil.webui\\votafacil.webui\\views\\resultado\\resultadovotacao.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\views\\resultado\\resultadovotacao.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\testes\\votafacil\\votafacil.webui\\votafacil.webui\\views\\votacao\\escolhacandidato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\views\\votacao\\escolhacandidato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\testes\\votafacil\\votafacil.webui\\votafacil.webui\\views\\votacao\\cadastrarcandidato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\views\\votacao\\cadastrarcandidato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\testes\\votafacil\\votafacil.webui\\votafacil.webui\\views\\votante\\cadastarvotante.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\views\\votante\\cadastarvotante.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\testes\\votafacil\\votafacil.webui\\votafacil.webui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\testes\\votafacil\\votafacil.webui\\votafacil.webui\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "VotaFacil.WebUI\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAmwBYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T00:15:59.529Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "VotaFacil.WebUI\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA1wCcAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T00:15:01.451Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CadastarVotante.cshtml",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Votante\\CadastarVotante.cshtml",
+              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Views\\Votante\\CadastarVotante.cshtml",
+              "ToolTip": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Votante\\CadastarVotante.cshtml",
+              "RelativeToolTip": "VotaFacil.WebUI\\Views\\Votante\\CadastarVotante.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T23:23:49.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResultadoVotacao.cshtml",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Resultado\\ResultadoVotacao.cshtml",
+              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Views\\Resultado\\ResultadoVotacao.cshtml",
+              "ToolTip": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Resultado\\ResultadoVotacao.cshtml",
+              "RelativeToolTip": "VotaFacil.WebUI\\Views\\Resultado\\ResultadoVotacao.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T23:22:06.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CadastrarCandidato.cshtml",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Votacao\\CadastrarCandidato.cshtml",
+              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Views\\Votacao\\CadastrarCandidato.cshtml",
+              "ToolTip": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Votacao\\CadastrarCandidato.cshtml",
+              "RelativeToolTip": "VotaFacil.WebUI\\Views\\Votacao\\CadastrarCandidato.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T23:19:21.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EscolhaCandidato.cshtml",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Votacao\\EscolhaCandidato.cshtml",
+              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Views\\Votacao\\EscolhaCandidato.cshtml",
+              "ToolTip": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Votacao\\EscolhaCandidato.cshtml",
+              "RelativeToolTip": "VotaFacil.WebUI\\Views\\Votacao\\EscolhaCandidato.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T23:16:09.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "VotaFacil.WebUI\\Views\\Login\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T23:13:23.257Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 152,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5a4e9529-b6a0-46b5-be4f-0f0b239bc0eb}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 152,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
