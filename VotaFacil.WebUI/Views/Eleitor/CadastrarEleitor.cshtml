@@ -1,0 +1,25 @@
+﻿@model VotaFacil.Apllication.DTO.EleitorDTO;
+
+@{
+    ViewBag.Title = "Cadastrar Eleitor";
+}
+
+<h2>Cadastrar Eleitor</h2>
+
+@using (Html.BeginForm("Cadastrar", "Eleitor", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nome)
+        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CPF)
+        @Html.TextBoxFor(m => m.CPF, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+    </div>
+}
+
+<!-- Adicione o link para o Bootstrap no seu layout -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">

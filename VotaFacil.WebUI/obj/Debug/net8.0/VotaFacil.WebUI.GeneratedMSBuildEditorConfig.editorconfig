@@ -9,59 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VotaFacil.WebUI
 build_property.RootNamespace = VotaFacil.WebUI
-build_property.ProjectDir = C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.WebUI\
+build_property.ProjectDir = C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.WebUI
+build_property.MSBuildProjectDirectory = C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Home/Index.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Eleitor/CadastrarEleitor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlaXRvclxDYWRhc3RyYXJFbGVpdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Home/Privacy.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Login/Login.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Resultado/ResultadoVotacao.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Resultado/ResultadoVotacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdWx0YWRvXFJlc3VsdGFkb1ZvdGFjYW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Shared/Error.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Votacao/CadastrarCandidato.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Votacao/CadastrarCandidato.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90YWNhb1xDYWRhc3RyYXJDYW5kaWRhdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Votacao/EscolhaCandidato.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Votacao/EscolhaCandidato.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90YWNhb1xFc2NvbGhhQ2FuZGlkYXRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Votante/CadastarVotante.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90YW50ZVxDYWRhc3RhclZvdGFudGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/_ViewImports.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/_ViewStart.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/431277/Documents/Testes/VotaFacil/VotaFacil.WebUI/VotaFacil.WebUI/Views/Shared/_Layout.cshtml]
+[C:/Users/431277/Documents/docs/VotaFacil/VotaFacil.WebUI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bvxm8opk4o

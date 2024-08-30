@@ -12,7 +12,7 @@
             OpcoesDeVoto = opcoesDeVoto;
         }
 
-        public VotacaoModel(VotanteModel votante, OpcaoVotoModel opcaoVoto)
+        public VotacaoModel(EleitorModel votante, OpcaoVotoModel opcaoVoto)
         {
             if (!PeriodoVotacao.EstaDentroDoPeriodo(DateTime.Now))
                 throw new Exception("Fora do período de votação.");

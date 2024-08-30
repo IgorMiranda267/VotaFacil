@@ -23,9 +23,15 @@ namespace VotaFacil.WebUI.Controllers
             return View("Login");
         }
 
+        //Redirecionamentos
         public IActionResult Login()
         {
             return RedirectToAction("Index", "Login");
+        }
+
+        public IActionResult Logout()
+        {
+            return RedirectToAction("Logout", "Login");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

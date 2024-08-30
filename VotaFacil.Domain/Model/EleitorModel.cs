@@ -2,7 +2,7 @@
 
 namespace VotaFacil.Domain.Entidades
 {
-    public class VotanteModel
+    public class EleitorModel
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }
@@ -10,18 +10,15 @@ namespace VotaFacil.Domain.Entidades
         public string Identificador { get; set; }
         public string EnderecoEthereum { get; set; }
 
-        public VotanteModel(Guid id, string nome, string cpf, string identificador, string enderecoEthereum)
+        public EleitorModel(string nome, string cpf)
         {
             ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(nome), "O nome não pode ser vazio.");
             ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(cpf), "O nome não pode ser vazio.");
-            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(identificador), "O nome identificador pode ser vazio.");
-            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(enderecoEthereum), "O endereco Ethereum não pode ser vazio.");
 
-            Id = id;
+
+            Id = new Guid();
             Nome = nome;
             Cpf = cpf;
-            Identificador = identificador;
-            EnderecoEthereum = enderecoEthereum;
         }
 
         public bool Autenticar(string identificador, string enderecoEthereum)
