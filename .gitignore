@@ -225,3 +225,11 @@ AppPackages/
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 *.json
+
+VotaFacil.Apllication/bin/Debug/net8.0/
+
+*.dll
+
+*.exe
+
+VotaFacil.Apllication/obj/Debug/net8.0/

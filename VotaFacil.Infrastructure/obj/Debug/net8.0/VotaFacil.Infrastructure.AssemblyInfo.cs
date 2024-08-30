@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VotaFacil.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25372d87b0b86dfd612ec451abd6d6e043c7d2ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09c33fba12fe613504816faf4be99b8cddccecff")]
 [assembly: System.Reflection.AssemblyProductAttribute("VotaFacil.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VotaFacil.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
