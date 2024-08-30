@@ -1,4 +1,0 @@
-C:\Users\431277\Documents\Sistema-Votacao-BlockChain-master\VotacaoTCC.Domain\obj\Debug\net8.0\VotacaoTCC.Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\431277\Documents\Sistema-Votacao-BlockChain-master\VotacaoTCC.Domain\obj\Debug\net8.0\VotacaoTCC.Domain.AssemblyInfoInputs.cache
-C:\Users\431277\Documents\Sistema-Votacao-BlockChain-master\VotacaoTCC.Domain\obj\Debug\net8.0\VotacaoTCC.Domain.AssemblyInfo.cs
-C:\Users\431277\Documents\Sistema-Votacao-BlockChain-master\VotacaoTCC.Domain\obj\Debug\net8.0\VotacaoTCC.Domain.csproj.CoreCompileInputs.cache
