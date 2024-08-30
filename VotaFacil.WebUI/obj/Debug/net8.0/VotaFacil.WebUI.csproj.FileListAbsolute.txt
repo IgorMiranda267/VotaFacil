@@ -64,3 +64,15 @@ C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.WebUI\bin\D
 C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.WebUI\bin\Debug\net8.0\VotaFacil.CrossCutting.exe
 C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.WebUI\bin\Debug\net8.0\VotaFacil.CrossCutting.dll
 C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.WebUI\bin\Debug\net8.0\VotaFacil.CrossCutting.pdb
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.csproj.AssemblyReference.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.AssemblyInfoInputs.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.AssemblyInfo.cs
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.csproj.CoreCompileInputs.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.RazorAssemblyInfo.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.RazorAssemblyInfo.cs
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.sourcelink.json
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.dll
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\refint\VotaFacil.WebUI.dll
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.pdb

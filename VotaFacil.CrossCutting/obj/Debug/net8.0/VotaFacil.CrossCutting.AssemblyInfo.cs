@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VotaFacil.CrossCutting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+392ffeaf3610c30aebb812c406e8e62ff1c7d916")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7ec2c27fc32c61960b18b2b3cf274ed95c80cd9")]
 [assembly: System.Reflection.AssemblyProductAttribute("VotaFacil.CrossCutting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VotaFacil.CrossCutting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

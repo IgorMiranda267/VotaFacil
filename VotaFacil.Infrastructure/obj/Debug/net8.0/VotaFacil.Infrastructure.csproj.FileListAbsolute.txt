@@ -43,3 +43,12 @@ C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.Infrastruct
 C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.pdb
 C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.genruntimeconfig.cache
 C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.Infrastructure\obj\Debug\net8.0\ref\VotaFacil.Infrastructure.dll
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.AssemblyInfo.cs
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.sourcelink.json
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.dll
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\refint\VotaFacil.Infrastructure.dll
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Infrastructure\obj\Debug\net8.0\VotaFacil.Infrastructure.pdb

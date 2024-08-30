@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZUaH3Bib82Ti3DudiSAP8CRJmqTADQIw4yGXwOiyFk/FQEkDMmJh95LmNf/fp447bLZFlAHyocTAui/6cw8+3w==",
+  "dgSpecHash": "TZC7MvUK2cs44dWDmD8OO4XvbsCzTJn8CG1nxpTzPNhCRb1dxMoNRkgrWKmvnX0gpKO8J9WeksvHjQLaBhs/Pw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\VotaFacil.WebUI.csproj",
+  "projectFilePath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\431277\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\431277\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.5\\microsoft.entityframeworkcore.8.0.5.nupkg.sha512",

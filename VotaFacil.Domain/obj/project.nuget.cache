@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o6vUFHtkjgQT5eh06RqGt1cp/uES/1YJUgVsd8EtTPONnDv1yBZtTIWIdmcver/cVP1UdHyrrQn+/DbS5fNuJA==",
+  "dgSpecHash": "VcyXg+llffAFP5QwLLHwBplCdX5kaFWqev04uO9Vg6WnMQk2FpQ1viD3pvS6WGUVc2uG0R5/pgwvt2f1KZxI+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.Domain\\VotaFacil.Domain.csproj",
+  "projectFilePath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Domain\\VotaFacil.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\431277\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.2\\microsoft.identitymodel.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\431277\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.2\\microsoft.identitymodel.jsonwebtokens.8.0.2.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b2JMf4JlygMRQ3WOxwwsyfik7DOp8bOkEIrHaWnpD058HmIThzml82hPIAyTIpdWeFBDyuzFKspYHf+3gTZCWA==",
+  "dgSpecHash": "rqm1UE1DPutuhNjYy5xYXTPuy5/KFFJZZOdlJ7WedNEVcVqp6JyhdGaMU59DuQcJxpSP66A7sZjYjzE0mWH34A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj",
+  "projectFilePath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\431277\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\431277\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.5\\microsoft.entityframeworkcore.8.0.5.nupkg.sha512",

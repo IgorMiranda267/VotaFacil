@@ -6503,11 +6503,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\VotaFacil.WebUI.csproj",
+      "projectUniqueName": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI.csproj",
       "projectName": "VotaFacil.WebUI",
-      "projectPath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\VotaFacil.WebUI.csproj",
+      "projectPath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI.csproj",
       "packagesPath": "C:\\Users\\431277\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.WebUI\\obj\\",
+      "outputPath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6529,11 +6529,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.Apllication\\VotaFacil.Apllication.csproj": {
-              "projectPath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.Apllication\\VotaFacil.Apllication.csproj"
+            "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\VotaFacil.Apllication.csproj": {
+              "projectPath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\VotaFacil.Apllication.csproj"
             },
-            "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj": {
-              "projectPath": "C:\\Users\\431277\\Documents\\Testes\\VotaFacil\\VotaFacil.WebUI\\VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj"
+            "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj": {
+              "projectPath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj"
             }
           }
         }
