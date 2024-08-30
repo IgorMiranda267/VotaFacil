@@ -4,10 +4,10 @@ namespace VotaFacil.Domain.Interfaces
 {
     public interface IVotanteRepositorio
     {
-        Task<VotanteModel> ObterVotantePorId(Guid id);
-        Task<IEnumerable<VotanteModel>> ObterTodosVotantes();
-        Task AdicionarVotante(VotanteModel votante);
-        Task AtualizarVotante(VotanteModel votante);
+        Task<EleitorModel> ObterVotantePorId(Guid id);
+        Task<IEnumerable<EleitorModel>> ObterTodosVotantes();
+        Task AdicionarVotante(EleitorModel votante);
+        Task AtualizarVotante(EleitorModel votante);
         Task DeletarVotante(Guid id);
     }
 }

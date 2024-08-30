@@ -18,6 +18,17 @@ namespace VotaFacil.WebUI.Controllers
             return View("Login");
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await _loginFacade.Logout();
+            return View("Login");
+        }
+
+        public IActionResult Cadastrar()
+        {
+            return RedirectToAction("Index", "Eleitor");
+        }
+
         [HttpPost]
         public async Task<ActionResult> Login(LoginViewModel model)
         {
@@ -35,13 +46,6 @@ namespace VotaFacil.WebUI.Controllers
                 ViewBag.ErrorMessage = "Login inválido, tente novamente!";
                 return View("Login");
             }
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Logout()
-        {
-            await _loginFacade.Logout();
-            return View("Login");
         }
     }
 }

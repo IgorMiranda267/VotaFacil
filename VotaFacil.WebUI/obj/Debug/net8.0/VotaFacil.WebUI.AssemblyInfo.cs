@@ -14,15 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VotaFacil.WebUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7ec2c27fc32c61960b18b2b3cf274ed95c80cd9")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+392ffeaf3610c30aebb812c406e8e62ff1c7d916")]
->>>>>>> Stashed changes
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+392ffeaf3610c30aebb812c406e8e62ff1c7d916")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2aede2b2696a8e32723894ff2d14e0512f47a25b")]
 [assembly: System.Reflection.AssemblyProductAttribute("VotaFacil.WebUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VotaFacil.WebUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

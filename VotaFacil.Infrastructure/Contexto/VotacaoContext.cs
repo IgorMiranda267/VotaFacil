@@ -8,7 +8,7 @@ namespace VotaFacil.Infra.Data.Contexto
         public VotacaoContext(DbContextOptions<VotacaoContext> options) : base(options)
         { }
 
-        public DbSet<VotanteModel> Votantes { get; set; }
+        public DbSet<EleitorModel> Eleitors { get; set; }
         public DbSet<VotacaoModel> Votacoes { get; set; }
         public DbSet<OpcaoVotoModel> OpcoesVoto { get; set; }
 

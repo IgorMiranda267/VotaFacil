@@ -55,6 +55,7 @@ C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.CrossCuttin
 C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.CrossCutting\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Apllication.deps.json
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Apllication.runtimeconfig.json
+<<<<<<< Updated upstream
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Infrastructure.deps.json
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Infrastructure.runtimeconfig.json
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Apllication.exe
@@ -62,6 +63,15 @@ C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Domain.runtimeconfig.json
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Domain.exe
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Infrastructure.exe
+=======
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Domain.deps.json
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Domain.runtimeconfig.json
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Domain.exe
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Infrastructure.deps.json
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Infrastructure.runtimeconfig.json
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Infrastructure.exe
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.Apllication.exe
+>>>>>>> Stashed changes
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.CrossCutting.exe
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.CrossCutting.deps.json
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\VotaFacil.CrossCutting.runtimeconfig.json
@@ -109,3 +119,8 @@ C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\obj\Debug\net8.0
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\obj\Debug\net8.0\VotaFacil.CrossCutting.pdb
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\obj\Debug\net8.0\VotaFacil.CrossCutting.genruntimeconfig.cache
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\obj\Debug\net8.0\ref\VotaFacil.CrossCutting.dll
+<<<<<<< Updated upstream
+=======
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.CrossCutting\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+>>>>>>> Stashed changes

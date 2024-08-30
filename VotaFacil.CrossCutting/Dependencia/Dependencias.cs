@@ -6,6 +6,11 @@ using VotaFacil.Domain.Interfaces;
 using VotaFacil.Infra.Data.Repositorios;
 using VotaFacil.Infrastructure.Repositorios;
 using VotaFacil.Apllication.Controller;
+using VotaFacil.Apllication.Facade;
+using VotaFacil.Apllication.Mapper;
+using System.Reflection;
+using AutoMapper;
+
 
 namespace VotaFacil.Infra.CrossCutting.Dependencia
 {
@@ -15,7 +20,8 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         {
             ConfiguracaoBaseDados(services, configuration);
             Repositorios(services);
-
+            Facade(services);
+            AutoMapper(services);
             return services;
         }
 
@@ -28,10 +34,20 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
 
         private static void Repositorios(IServiceCollection services)
         {
-            services.AddScoped<IVotanteRepositorio, VotanteRepositorio>();
+            services.AddScoped<IEleitorRepositorio, EleitorRepositorio>();
             services.AddScoped<IVotacaoRepositorio, VotacaoRepositorio>();
             services.AddScoped<ILoginRepositorio, LoginRepositorio>();
+        }
+
+        private static void Facade(IServiceCollection services)
+        {
             services.AddScoped<LoginFacade>();
+            services.AddScoped<EleitorFacade>();
+        }
+
+        private static void AutoMapper(IServiceCollection services)
+        {
+            services.AddAutoMapper(typeof(MappingProfile));
         }
     }
 }
