@@ -14,6 +14,7 @@ namespace VotaFacil.WebUI.Controllers
         {
             _eleitor = eleitor;
         }
+
         public IActionResult Index()
         {
             return View("CadastrarEleitor");
