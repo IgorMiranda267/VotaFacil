@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VotaFacil.Domain
-build_property.ProjectDir = C:\Users\431277\Documents\Testes\VotaFacil\VotaFacil.WebUI\VotaFacil.Domain\
+build_property.ProjectDir = C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Domain\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
