@@ -1,2 +1,34 @@
+# Arquivos de build
+bin/
+obj/
 
-*.vsidx
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Configurações do Visual Studio
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Pacotes NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Arquivos de lock
+project.lock.json
+project.fragment.lock.json
+
+# Arquivos de publicação
+publish/
