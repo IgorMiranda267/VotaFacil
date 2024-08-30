@@ -3,43 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}|VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.crosscutting\\dependencia\\dependencias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}|VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj|solutionrelative:votafacil.crosscutting\\dependencia\\dependencias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-<<<<<<< Updated upstream
-=======
-      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.webui\\controllers\\eleitorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\controllers\\eleitorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}|VotaFacil.Apllication\\VotaFacil.Apllication.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.apllication\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}|VotaFacil.Apllication\\VotaFacil.Apllication.csproj|solutionrelative:votafacil.apllication\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}|VotaFacil.Apllication\\VotaFacil.Apllication.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.apllication\\facade\\eleitorfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}|VotaFacil.Apllication\\VotaFacil.Apllication.csproj|solutionrelative:votafacil.apllication\\facade\\eleitorfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9BBF86A-6DE2-45E4-917E-D03386B6172C}|VotaFacil.Domain\\VotaFacil.Domain.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.domain\\model\\eleitormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9BBF86A-6DE2-45E4-917E-D03386B6172C}|VotaFacil.Domain\\VotaFacil.Domain.csproj|solutionrelative:votafacil.domain\\model\\eleitormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.webui\\views\\eleitor\\cadastrareleitor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\views\\eleitor\\cadastrareleitor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}|VotaFacil.Apllication\\VotaFacil.Apllication.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.apllication\\dto\\eleitordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46D8CA39-B935-4AB8-A2C8-EFD1A776F28D}|VotaFacil.Apllication\\VotaFacil.Apllication.csproj|solutionrelative:votafacil.apllication\\dto\\eleitordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
->>>>>>> Stashed changes
-      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.webui\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.webui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}|VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.crosscutting\\dependencia\\dependencias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}|VotaFacil.CrossCutting\\VotaFacil.CrossCutting.csproj|solutionrelative:votafacil.crosscutting\\dependencia\\dependencias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|c:\\users\\431277\\documents\\docs\\votafacil\\votafacil.webui\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{033FE7C7-3E61-47F2-AFB8-3138C5075522}|VotaFacil.WebUI\\VotaFacil.WebUI.csproj|solutionrelative:votafacil.webui\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -49,65 +25,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< Updated upstream
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-=======
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
->>>>>>> Stashed changes
+              "DocumentIndex": 1,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "VotaFacil.WebUI\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Controllers\\HomeController.cs",
               "RelativeToolTip": "VotaFacil.WebUI\\Controllers\\HomeController.cs",
-<<<<<<< Updated upstream
-              "ViewState": "AQIAAAoAAAAAAAAAAAA6wBsAAAATAAAA",
-=======
               "ViewState": "AQIAAAoAAAAAAAAAAAA6wBwAAAATAAAA",
->>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-28T00:15:59.529Z",
               "IsPinned": true,
               "EditorCaption": ""
-<<<<<<< Updated upstream
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "VotaFacil.WebUI\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T00:15:01.451Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dependencias.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
-              "RelativeDocumentMoniker": "VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
-              "RelativeToolTip": "VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAACUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T00:12:48.35Z",
-=======
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "VotaFacil.WebUI\\Controllers\\LoginController.cs",
@@ -120,108 +56,38 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EleitorController.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Controllers\\EleitorController.cs",
-              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Controllers\\EleitorController.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Controllers\\EleitorController.cs",
-              "RelativeToolTip": "VotaFacil.WebUI\\Controllers\\EleitorController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T23:08:41.952Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dependencias.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
-              "RelativeDocumentMoniker": "VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs*",
-              "RelativeToolTip": "VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs*",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAADEAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T00:12:48.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EleitorModel.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Domain\\Model\\EleitorModel.cs",
-              "RelativeDocumentMoniker": "VotaFacil.Domain\\Model\\EleitorModel.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Domain\\Model\\EleitorModel.cs",
-              "RelativeToolTip": "VotaFacil.Domain\\Model\\EleitorModel.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAQAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T00:08:44.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\Mapper\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "VotaFacil.Apllication\\Mapper\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\Mapper\\MappingProfile.cs",
-              "RelativeToolTip": "VotaFacil.Apllication\\Mapper\\MappingProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T00:05:54.784Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CadastrarEleitor.cshtml",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Views\\Eleitor\\CadastrarEleitor.cshtml",
-              "RelativeDocumentMoniker": "VotaFacil.WebUI\\Views\\Eleitor\\CadastrarEleitor.cshtml",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.WebUI\\Views\\Eleitor\\CadastrarEleitor.cshtml",
-              "RelativeToolTip": "VotaFacil.WebUI\\Views\\Eleitor\\CadastrarEleitor.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-29T23:59:26.532Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EleitorDTO.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\DTO\\EleitorDTO.cs",
-              "RelativeDocumentMoniker": "VotaFacil.Apllication\\DTO\\EleitorDTO.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\DTO\\EleitorDTO.cs",
-              "RelativeToolTip": "VotaFacil.Apllication\\DTO\\EleitorDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T23:55:33.919Z",
->>>>>>> Stashed changes
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-<<<<<<< Updated upstream
-=======
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EleitorFacade.cs",
-              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\Facade\\EleitorFacade.cs",
-              "RelativeDocumentMoniker": "VotaFacil.Apllication\\Facade\\EleitorFacade.cs",
-              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.Apllication\\Facade\\EleitorFacade.cs",
-              "RelativeToolTip": "VotaFacil.Apllication\\Facade\\EleitorFacade.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAD4vyUAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T23:42:50.622Z",
+              "DocumentIndex": 0,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AQIAAJYaAAAAAAAAAAAwwKAaAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-08-30T00:45:44.539Z",
               "EditorCaption": ""
->>>>>>> Stashed changes
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dependencias.cs",
+              "DocumentMoniker": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
+              "RelativeDocumentMoniker": "VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
+              "ToolTip": "C:\\Users\\431277\\Documents\\docs\\VotaFacil\\VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
+              "RelativeToolTip": "VotaFacil.CrossCutting\\Dependencia\\Dependencias.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAACsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T00:12:48.35Z",
+              "EditorCaption": ""
             }
           ]
         },

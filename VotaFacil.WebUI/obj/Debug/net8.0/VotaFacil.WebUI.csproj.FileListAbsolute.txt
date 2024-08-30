@@ -118,11 +118,9 @@ C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFa
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.RazorAssemblyInfo.cache
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.RazorAssemblyInfo.cs
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.sourcelink.json
-<<<<<<< Updated upstream
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\refint\VotaFacil.WebUI.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.pdb
-=======
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\staticwebassets\msbuild.VotaFacil.WebUI.Microsoft.AspNetCore.StaticWebAssets.props
@@ -134,11 +132,7 @@ C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\scoped
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\scopedcss\bundle\VotaFacil.WebUI.styles.css
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\scopedcss\projectbundle\VotaFacil.WebUI.bundle.scp.css
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFaci.56A9296C.Up2Date
-C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.dll
-C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\refint\VotaFacil.WebUI.dll
-C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.pdb
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\VotaFacil.WebUI.genruntimeconfig.cache
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\obj\Debug\net8.0\ref\VotaFacil.WebUI.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.WebUI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
->>>>>>> Stashed changes

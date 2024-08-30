@@ -96,17 +96,11 @@ C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.AssemblyInfo.cs
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.csproj.CoreCompileInputs.cache
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.sourcelink.json
-<<<<<<< Updated upstream
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\refint\VotaFacil.Apllication.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.pdb
-=======
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFaci.06A9582F.Up2Date
-C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.dll
-C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\refint\VotaFacil.Apllication.dll
-C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.pdb
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\VotaFacil.Apllication.genruntimeconfig.cache
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\obj\Debug\net8.0\ref\VotaFacil.Apllication.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\431277\Documents\docs\VotaFacil\VotaFacil.Apllication\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
->>>>>>> Stashed changes

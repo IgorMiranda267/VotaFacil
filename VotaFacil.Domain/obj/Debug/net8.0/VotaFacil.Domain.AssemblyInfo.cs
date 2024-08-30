@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VotaFacil.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d1a82297ef97d966dd2922c4f637ff13a31e119")]
+<<<<<<< Updated upstream
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+126d365691ab2eeec3ff1da4fea17305c06ca361")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0861d92aa0933c5b72a40861a8d21d366f7cc3b1")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("VotaFacil.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VotaFacil.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
