@@ -19,18 +19,18 @@ namespace VotaFacil.WebUI.Controllers
             return View("CadastrarEleitor");
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Cadastrar(EleitorDTO eleitor)
-        {
-            if (LoginViewModel.ValidarCPF(eleitor.CPF))
-            {
-                ViewBag.ErrorMessage = "CPF invalido, tente novamente!";
-                return View("CadastrarEleitor");
-            }
-            
-            await _eleitor.CadastarEleitor(eleitor);
+        //[HttpPost]
+        //public async Task<ActionResult> Cadastrar(EleitorDTO eleitor)
+        //{
+        //    if (LoginViewModel.ValidarCPF(eleitor.CPF))
+        //    {
+        //        ViewBag.ErrorMessage = "CPF invalido, tente novamente!";
+        //        return View("CadastrarEleitor");
+        //    }
 
-            return null;
-        }
+        //    await _eleitor.CadastarEleitor(eleitor);
+
+        //    return null;
+        //}
     }
 }
