@@ -1,16 +1,13 @@
-﻿using VotaFacil.Infra.Data.Contexto;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using VotaFacil.Domain.Interfaces;
-using VotaFacil.Infra.Data.Repositorios;
-using VotaFacil.Infrastructure.Repositorios;
 using VotaFacil.Apllication.Controller;
 using VotaFacil.Apllication.Facade;
 using VotaFacil.Apllication.Mapper;
-using System.Reflection;
-using AutoMapper;
-
+using VotaFacil.Domain.Interfaces;
+using VotaFacil.Infra.Data.Contexto;
+using VotaFacil.Infra.Data.Repositorios;
+using VotaFacil.Infrastructure.Repositorios;
 
 namespace VotaFacil.Infra.CrossCutting.Dependencia
 {
@@ -27,9 +24,15 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
 
         private static void ConfiguracaoBaseDados(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<VotacaoContext>(options => options.UseMySql(
-                configuration.GetConnectionString("CONNECTION-STRING"),
-                b => b.MigrationsAssembly(typeof(VotacaoContext).Assembly.FullName)));
+            //var connectionString = "Server=localhost;Port=3306;Database=nome_do_banco;User=root;Password=sua_senha;";
+            //var serverVersion = ServerVersion.AutoDetect(connectionString);
+
+            //services.AddDbContext<VotacaoContext>(options =>
+            //    options.UseMySql(connectionString, serverVersion,
+            //        b => b.MigrationsAssembly(typeof(VotacaoContext).Assembly.FullName)));
+
+            services.AddDbContext<VotacaoContext>(options =>
+                options.UseInMemoryDatabase("VotacaoDatabase"));
         }
 
         private static void Repositorios(IServiceCollection services)
