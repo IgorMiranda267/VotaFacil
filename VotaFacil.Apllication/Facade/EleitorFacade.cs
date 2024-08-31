@@ -1,4 +1,5 @@
-﻿using VotaFacil.Apllication.DTO;
+﻿using AutoMapper;
+using VotaFacil.Apllication.DTO;
 using VotaFacil.Domain.Entidades;
 using VotaFacil.Domain.Interfaces;
 
@@ -7,20 +8,24 @@ namespace VotaFacil.Apllication.Facade
     public class EleitorFacade
     {
         private readonly IEleitorRepositorio _eleitor;
+        private readonly IMapper _mapper;
 
-        public EleitorFacade(IEleitorRepositorio eleitorRepositorio)
+        public EleitorFacade(IEleitorRepositorio eleitorRepositorio, IMapper mapper)
         {
+            _mapper = mapper;
             _eleitor = eleitorRepositorio;
         }
 
         public async Task CadastarEleitor(EleitorDTO eleitor)
         {
-           // await _eleitor.AdicionarEleitor(eleitor);
+            var eleitorModel = new EleitorModel(eleitor.Nome, eleitor.CPF);
+            await _eleitor.AdicionarEleitor(eleitorModel);
         }
 
         public async Task AtualizarEleitor(EleitorDTO eleitor)
         {
-            //await _eleitor.AtualizarEleitor(eleitor); 
+            var eleitorMap = _mapper.Map<EleitorModel>(eleitor);
+            await _eleitor.AtualizarEleitor(eleitorMap); 
         }
 
         public async Task DeletarEleitor(Guid id)
@@ -35,7 +40,8 @@ namespace VotaFacil.Apllication.Facade
 
         public async Task<IEnumerable<EleitorDTO>> ObterTodosEleitores()
         {
-            return null;// await _eleitor.ObterTodosEleitores();
+            IEnumerable<EleitorModel> eleitores = await _eleitor.ObterTodosEleitores();
+            return _mapper.Map<IEnumerable<EleitorDTO>>(eleitores);
         }
     }
 }
