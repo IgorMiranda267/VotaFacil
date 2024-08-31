@@ -16,7 +16,7 @@ namespace VotaFacil.Domain.Entidades
             ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(cpf), "O nome não pode ser vazio.");
 
 
-            Id = new Guid();
+            Id = Guid.NewGuid();
             Nome = nome;
             Cpf = cpf;
         }
