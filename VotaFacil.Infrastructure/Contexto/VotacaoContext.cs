@@ -10,7 +10,7 @@ namespace VotaFacil.Infra.Data.Contexto
 
         public DbSet<EleitorModel> Eleitors { get; set; }
         public DbSet<VotacaoModel> Votacoes { get; set; }
-        public DbSet<OpcaoVotoModel> OpcoesVoto { get; set; }
+        public DbSet<VotoModel> OpcoesVoto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

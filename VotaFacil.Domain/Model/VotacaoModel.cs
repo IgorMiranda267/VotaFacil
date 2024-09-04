@@ -4,15 +4,15 @@
     {
         private readonly List<Guid> _votosRegistrados = new List<Guid>();
         public PeriodoVotacaoModel PeriodoVotacao { get; private set; }
-        public List<OpcaoVotoModel> OpcoesDeVoto { get; private set; } = new List<OpcaoVotoModel>();
+        public List<VotoModel> OpcoesDeVoto { get; private set; } = new List<VotoModel>();
 
-        public VotacaoModel(PeriodoVotacaoModel periodoVotacao, List<OpcaoVotoModel> opcoesDeVoto)
+        public VotacaoModel(PeriodoVotacaoModel periodoVotacao, List<VotoModel> opcoesDeVoto)
         {
             PeriodoVotacao = periodoVotacao;
             OpcoesDeVoto = opcoesDeVoto;
         }
 
-        public VotacaoModel(EleitorModel votante, OpcaoVotoModel opcaoVoto)
+        public VotacaoModel(EleitorModel votante, VotoModel opcaoVoto)
         {
             if (!PeriodoVotacao.EstaDentroDoPeriodo(DateTime.Now))
                 throw new Exception("Fora do período de votação.");

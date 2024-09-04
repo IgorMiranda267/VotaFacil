@@ -55,6 +55,7 @@ namespace VotaFacil.Infrastructure.Service
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
                     ValidateAudience = false,
+                    RequireSignedTokens = false,
                     ClockSkew = TimeSpan.Zero
                 }, out SecurityToken validatedToken);
 
