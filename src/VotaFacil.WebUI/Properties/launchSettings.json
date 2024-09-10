@@ -34,5 +34,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=SharedPostgreSQL01A.back4app.com;Port=5433;Database=7b8a048fad4244579bd24c083cc2c8ad;Username=c1TkhEyWoo;Password=UPshUKQu63deRGaRrK5TuA84"
   }
 }
