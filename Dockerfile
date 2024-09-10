@@ -6,12 +6,13 @@ COPY src .
 WORKDIR /src/VotaFacil.WebUI
 RUN dotnet publish VotaFacil.WebUI.csproj -c Release -o /app/publish
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+# Estágio 2: Construção da imagem final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# ENV ASPNETCORE_URLS = http://*:8080
-# ENV ASPNETCORE_HTTP_PORTS = 8080
+# Expondo as portas necessárias
 EXPOSE 8080
-EXPOSE 443
+
+# Definindo o ponto de entrada
 ENTRYPOINT ["dotnet", "VotaFacil.WebUI.dll"]
