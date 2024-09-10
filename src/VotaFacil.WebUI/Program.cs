@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using VotaFacil.Infra.CrossCutting.Dependencia;
+using VotaFacil.Infra.Data.Contexto;
 
 var builder = WebApplication.CreateBuilder(args);
 

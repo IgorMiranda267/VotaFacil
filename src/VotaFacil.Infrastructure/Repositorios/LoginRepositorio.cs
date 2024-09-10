@@ -1,12 +1,23 @@
-﻿using VotaFacil.Domain.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using VotaFacil.Domain.Entidades;
+using VotaFacil.Domain.Interfaces;
+using VotaFacil.Infra.Data.Contexto;
 
 namespace VotaFacil.Infrastructure.Repositorios
 {
     public class LoginRepositorio : ILoginRepositorio
     {
-        public Task<bool> Login(string username, string password)
+        private readonly VotacaoContext _contexto;
+        public LoginRepositorio(VotacaoContext contexto)
         {
-            return Task.FromResult(true);
+            _contexto = _contexto;
+        }
+
+        public async  Task<bool> Login(string username, string password)
+        {
+            var user = await _contexto.Set<LoginModel>()
+                                      .FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
+            return user != null;
         }
 
         public Task Logout()

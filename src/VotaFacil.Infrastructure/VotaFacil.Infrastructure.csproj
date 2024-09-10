@@ -13,6 +13,7 @@
     <PackageReference Include="Nethereum.RPC" Version="4.21.4" />
     <PackageReference Include="Nethereum.Util" Version="4.21.4" />
     <PackageReference Include="Nethereum.Web3" Version="4.21.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
   </ItemGroup>
