@@ -22,6 +22,9 @@ namespace VotaFacil.Domain.Entidades
 
         [Column("expiracao_token")] public DateTime? ExpiracaoToken { get; set; }
 
+        [Column("eleitor_id"), ForeignKey("EleitorModel")]
+        public Guid EleitorId { get; set; }
+        public EleitorModel Eleitor { get; set; }
 
         public LoginModel()
         {

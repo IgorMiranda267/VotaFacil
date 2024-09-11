@@ -7,11 +7,13 @@ namespace VotaFacil.Domain.Entidades
     public class VotacaoModel
     {
         [Key, Column("id")] public Guid Id { get; set; }
+
         [Required, Column("inicio")] public DateTime Inicio { get; private set; }
 
         [Required, Column("fim")] public DateTime Fim { get; private set; }
 
-        [Required, Column("opcoes_de_voto")] public List<VotoModel> OpcoesDeVoto { get; private set; } = new List<VotoModel>();
+        [Required, Column("opcoes_de_voto")]
+        public List<VotoModel> OpcoesDeVoto { get; private set; } = new List<VotoModel>();
 
         private readonly List<Guid> _votosRegistrados = new List<Guid>();
 

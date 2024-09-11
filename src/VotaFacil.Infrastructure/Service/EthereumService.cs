@@ -14,7 +14,7 @@ namespace VotaFacil.Infrastructure.Service
 
         public EthereumService(string url, string contractAddress, string accountAddress, string privateKey)
         {
-            _web3 = new Web3(new ContaEthereum(privateKey), url);
+            _web3 = new Web3(new ContaEthereumModel(privateKey), url);
             _contractAddress = contractAddress;
             _accountAddress = accountAddress;
             _privateKey = privateKey;
