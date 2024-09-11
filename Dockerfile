@@ -1,5 +1,7 @@
 # Estágio 1: Compilação dos projetos
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
 WORKDIR /src
 COPY src .
 
