@@ -1,16 +1,24 @@
-﻿using System.Security.Cryptography;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace VotaFacil.Domain.Entidades
 {
+    [Table("voto")]
     public class VotoModel
     {
-        public Guid Id { get; private set; }
-        public Guid EleitorId { get; private set; }
-        public Guid OpcaoVotoId { get; private set; }
-        public DateTime DataHoraVoto { get; private set; }
-        public string HashAnterior { get; private set; }
-        public string HashAtual { get; private set; }
+        [Key, Column("id")] public Guid Id { get; private set; }
+
+        [Required, Column("eleitor_id")] public Guid EleitorId { get; private set; }
+
+        [Required, Column("opcao_voto_id")] public Guid OpcaoVotoId { get; private set; }
+
+        [Required, Column("data_hora_voto")] public DateTime DataHoraVoto { get; private set; }
+
+        [Column("hash_anterior"), MaxLength(64)] public string HashAnterior { get; private set; }
+
+        [Column("hash_atual"), MaxLength(64)] public string HashAtual { get; private set; }
 
         public VotoModel(Guid eleitorId, Guid opcaoVotoId, string hashAnterior)
         {

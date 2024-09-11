@@ -1,23 +1,27 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VotaFacil.Domain.Entidades
 {
+    [Table("login")]
     public class LoginModel
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Token { get; set; }
-        public DateTime CriadoEm { get; set; }
-        public DateTime? UltimoLogin { get; set; } 
-        public bool Status { get; set; } 
-        public DateTime? ExpiracaoToken { get; set; }
+        [Key, Column("id")] public int Id { get; set; }
+
+        [Required, Column("username"), MaxLength(50)] public string Username { get; set; }
+
+        [Required, Column("password"), MaxLength(100)] public string Password { get; set; }
+
+        [Column("token")] public string Token { get; set; }
+
+        [Required, Column("criado_em")] public DateTime CriadoEm { get; set; }
+
+        [Column("ultimo_login")] public DateTime? UltimoLogin { get; set; }
+
+        [Required, Column("status")] public bool Status { get; set; }
+
+        [Column("expiracao_token")] public DateTime? ExpiracaoToken { get; set; }
+
 
         public LoginModel()
         {

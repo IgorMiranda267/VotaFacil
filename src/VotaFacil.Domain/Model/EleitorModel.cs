@@ -1,14 +1,21 @@
-﻿using VotaFacil.Domain.Validacao;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using VotaFacil.Domain.Validacao;
 
 namespace VotaFacil.Domain.Entidades
 {
+    [Table("eleitor")]
     public class EleitorModel
     {
-        public Guid Id { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string Identificador { get; set; }
-        public string EnderecoEthereum { get; set; }
+        [Key, Column("id")] public Guid Id { get; set; }
+
+        [Required, Column("nome"), MaxLength(100)] public string Nome { get; set; }
+
+        [Required, Column("cpf"), MaxLength(11)] public string Cpf { get; set; }
+
+        [Column("identificador"), MaxLength(50)] public string Identificador { get; set; }
+
+        [Column("endereco_ethereum"), MaxLength(100)] public string EnderecoEthereum { get; set; }
 
         public EleitorModel(string nome, string cpf)
         {
