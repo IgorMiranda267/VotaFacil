@@ -18,8 +18,7 @@ namespace VotaFacil.Domain.Entidades
 
         [Column("endereco_ethereum"), MaxLength(100)] public string EnderecoEthereum { get; set; }
 
-        [Column("conta_ethereum_id"), ForeignKey("ContaEthereumModel")]
-        public Guid ContaEthereumId { get; set; }
+        [Column("conta_ethereum_id"), ForeignKey("ContaEthereumModel")] public Guid ContaEthereumId { get; set; }
         public ContaEthereumModel ContaEthereum { get; set; }
 
         public List<VotacaoModel> Votacoes { get; set; } = new List<VotacaoModel>();
