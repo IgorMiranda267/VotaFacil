@@ -19,43 +19,11 @@ namespace VotaFacil.Infra.Data.Contexto
         {
             base.OnModelCreating(builder);
 
-            // Configurações para EleitorModel
+            // Configuração da relação de um para um entre EleitorModel e LoginModel
             builder.Entity<EleitorModel>()
-                .HasOne(e => e.ContaEthereum)
-                .WithOne()
-                .HasForeignKey<EleitorModel>(e => e.ContaEthereumId);
-
-            //builder.Entity<EleitorModel>()
-            //    .HasMany(e => e.Votacoes)
-            //    .WithOne()
-            //    .HasForeignKey(v => v.EleitorId);
-
-            // Configurações para VotacaoModel
-            builder.Entity<VotacaoModel>()
-                .HasMany(v => v.OpcoesDeVoto)
-                .WithOne()
-                .HasForeignKey(v => v.VotacaoId);
-
-            // Configurações para VotoModel
-            builder.Entity<VotoModel>()
-                .HasOne(v => v.Eleitor)
-                .WithMany()
-                .HasForeignKey(v => v.EleitorId);
-
-            builder.Entity<VotoModel>()
-                .HasOne(v => v.Votacao)
-                .WithMany(v => v.OpcoesDeVoto)
-                .HasForeignKey(v => v.VotacaoId);
-
-            // Configurações para LoginModel
-            builder.Entity<LoginModel>()
-                .HasOne(l => l.Eleitor)
-                .WithMany()
-                .HasForeignKey(l => l.EleitorId);
-
-            // Configurações para ContaEthereumModel
-            builder.Entity<ContaEthereumModel>()
-                .HasKey(c => c.Id);
+                .HasOne(e => e.Login)
+                .WithOne(l => l.Eleitor)
+                .HasForeignKey<LoginModel>(l => l.EleitorId);
         }
     }
 }

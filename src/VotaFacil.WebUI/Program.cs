@@ -1,6 +1,5 @@
-using Microsoft.EntityFrameworkCore;
+// C#
 using VotaFacil.Infra.CrossCutting.Dependencia;
-using VotaFacil.Infra.Data.Contexto;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +8,6 @@ builder.Services.AddControllersWithViews();
 
 // Chame o método de extensão para registrar as dependências
 builder.Services.AddDependencyResolver(builder.Configuration);
-
-// Chame o método de extensão para registrar as dependências
-//builder.Services.AddDependencyResolver(builder.Configuration);
 
 var app = builder.Build();
 
