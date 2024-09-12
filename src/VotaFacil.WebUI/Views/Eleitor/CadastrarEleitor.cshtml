@@ -18,6 +18,14 @@
         @Html.TextBoxFor(m => m.CPF, new { @class = "form-control" })
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.Username)
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
         <input type="submit" value="Cadastrar" class="btn btn-primary" />
     </div>
 }

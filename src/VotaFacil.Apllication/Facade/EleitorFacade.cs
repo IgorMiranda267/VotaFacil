@@ -18,7 +18,14 @@ namespace VotaFacil.Apllication.Facade
 
         public async Task CadastarEleitor(EleitorDTO eleitor)
         {
-            var eleitorModel = new EleitorModel(eleitor.Nome, eleitor.CPF);
+            var eleitorModel = new EleitorModel(
+                eleitor.Nome,
+                eleitor.CPF,
+                eleitor.Identificador,
+                eleitor.EnderecoEthereum,
+                eleitor.Username,
+                eleitor.Password
+            );
             await _eleitor.AdicionarEleitor(eleitorModel);
         }
 
