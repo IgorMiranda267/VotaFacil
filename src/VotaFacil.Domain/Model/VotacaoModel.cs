@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using VotaFacil.Domain.Model;
 
 namespace VotaFacil.Domain.Entidades
 {
@@ -12,16 +13,15 @@ namespace VotaFacil.Domain.Entidades
 
         [Required, Column("fim")] public DateTime Fim { get; private set; }
 
-        [Required, Column("opcoes_de_voto")]
-        public List<VotoModel> OpcoesDeVoto { get; private set; } = new List<VotoModel>();
+        // Relação com CandidatoModel
+        public ICollection<CandidatoModel> Candidatos { get; set; } = new List<CandidatoModel>();
+
+        // Relação com VotoModel
+        public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>();
 
         private readonly List<Guid> _votosRegistrados = new List<Guid>();
 
-
-        public VotacaoModel()
-        {
-
-        }
+        public VotacaoModel() { }
 
         public VotacaoModel(EleitorModel votante, VotoModel opcaoVoto)
         {
@@ -30,9 +30,6 @@ namespace VotaFacil.Domain.Entidades
 
             if (_votosRegistrados.Contains(votante.Id))
                 throw new Exception("Votante já votou.");
-
-            if (!OpcoesDeVoto.Any(o => o.Id == opcaoVoto.Id))
-                throw new Exception("Opção de voto inválida.");
 
             // Registrar voto (na vida real, aqui você registraria a transação na blockchain)
             _votosRegistrados.Add(votante.Id);

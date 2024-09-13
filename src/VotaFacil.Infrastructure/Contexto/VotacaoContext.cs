@@ -25,6 +25,23 @@ namespace VotaFacil.Infra.Data.Contexto
                 .HasOne(e => e.Login)
                 .WithOne(l => l.Eleitor)
                 .HasForeignKey<LoginModel>(l => l.EleitorId);
+
+            // Configuração da relação de muitos para muitos entre VotacaoModel e CandidatoModel
+            builder.Entity<VotacaoModel>()
+                .HasMany(v => v.Candidatos)
+                .WithMany(c => c.Votacoes);
+
+            // Configuração da relação de um para muitos entre CandidatoModel e VotoModel
+            builder.Entity<VotoModel>()
+                .HasOne(v => v.Candidato)
+                .WithMany(c => c.Votos)
+                .HasForeignKey(v => v.CandidatoId);
+
+            // Configuração da relação de um para muitos entre VotacaoModel e VotoModel
+            builder.Entity<VotoModel>()
+                .HasOne(v => v.Votacao)
+                .WithMany(v => v.Votos)
+                .HasForeignKey(v => v.VotacaoId);
         }
     }
 }

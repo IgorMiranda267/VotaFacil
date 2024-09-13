@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using VotaFacil.Domain.Validacao;
 using Microsoft.AspNetCore.Http;
+using VotaFacil.Domain.Entidades;
 
 namespace VotaFacil.Domain.Model
 {
@@ -17,6 +18,12 @@ namespace VotaFacil.Domain.Model
         [Required, Column("foto")] public string FotoPath { get; set; }
 
         [NotMapped] public IFormFile Foto { get; set; }
+
+        // Relação com VotacaoModel
+        public ICollection<VotacaoModel> Votacoes { get; set; } = new List<VotacaoModel>();
+
+        // Relação com VotoModel
+        public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>();
 
         public CandidatoModel() { }
 
