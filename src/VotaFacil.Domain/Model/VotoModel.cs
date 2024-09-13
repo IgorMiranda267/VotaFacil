@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 using System.Text;
+using VotaFacil.Domain.Model;
 
 namespace VotaFacil.Domain.Entidades
 {
@@ -20,6 +21,10 @@ namespace VotaFacil.Domain.Entidades
         [Column("votacao_id"), Required]
         public Guid VotacaoId { get; set; }
         public VotacaoModel Votacao { get; set; }
+
+        [Column("candidato_id"), Required]
+        public Guid CandidatoId { get; set; }
+        public CandidatoModel Candidato { get; set; }
 
         [Column("data_hora_voto"), Required] public DateTime DataHoraVoto { get; private set; }
 

@@ -25,10 +25,9 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
 
         private static void ConfiguracaoBaseDados(IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<VotacaoContext>(options =>
-                options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL"),
-                    b => b.MigrationsAssembly(typeof(VotacaoContext).Assembly.FullName)));
-
+                options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL"), b => b.MigrationsAssembly("VotaFacil.Infrastructure")));
         }
 
         private static void Repositorios(IServiceCollection services)
@@ -42,6 +41,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         {
             services.AddScoped<LoginFacade>();
             services.AddScoped<EleitorFacade>();
+            services.AddScoped<VotacaoFacade>();
         }
 
         private static void AutoMapper(IServiceCollection services)

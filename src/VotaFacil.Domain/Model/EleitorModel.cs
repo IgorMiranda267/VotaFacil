@@ -14,24 +14,27 @@ namespace VotaFacil.Domain.Entidades
 
         [Required, Column("cpf"), MaxLength(11)] public string Cpf { get; set; }
 
-        [Column("identificador"), MaxLength(50)] public string Identificador { get; set; }
+        [Column("identificador"), MaxLength(50)] public string? Identificador { get; set; }
 
-        [Column("endereco_ethereum"), MaxLength(100)] public string EnderecoEthereum { get; set; }
+        [Column("endereco_ethereum"), MaxLength(100)] public string? EnderecoEthereum { get; set; }
 
-        [Column("conta_ethereum_id"), ForeignKey("ContaEthereumModel")] public Guid ContaEthereumId { get; set; }
-        public ContaEthereumModel ContaEthereum { get; set; }
+        public LoginModel Login { get; set; }
 
-        public List<VotacaoModel> Votacoes { get; set; } = new List<VotacaoModel>();
+        public EleitorModel() { }
 
-        public EleitorModel(string nome, string cpf)
+        public EleitorModel(string nome, string cpf, string? identificador, string? enderecoEthereum, string username, string password)
         {
             ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(nome), "O nome não pode ser vazio.");
-            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(cpf), "O nome não pode ser vazio.");
-
+            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(cpf), "O CPF não pode ser vazio.");
+            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(username), "O username não pode ser vazio.");
+            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(password), "O password não pode ser vazio.");
 
             Id = Guid.NewGuid();
             Nome = nome;
             Cpf = cpf;
+            Identificador = "TESTE";
+            EnderecoEthereum = "ENDERECO_TESTE";
+            Login = new LoginModel(username, password, Id);
         }
 
         public bool Autenticar(string identificador, string enderecoEthereum)

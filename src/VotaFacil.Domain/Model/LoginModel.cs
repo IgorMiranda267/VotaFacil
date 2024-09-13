@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using VotaFacil.Domain.Validacao;
 
 namespace VotaFacil.Domain.Entidades
 {
@@ -22,14 +23,23 @@ namespace VotaFacil.Domain.Entidades
 
         [Column("expiracao_token")] public DateTime? ExpiracaoToken { get; set; }
 
-        [Column("eleitor_id"), ForeignKey("EleitorModel")]
+        [Column("eleitor_id"), ForeignKey("Eleitor")]
         public Guid EleitorId { get; set; }
         public EleitorModel Eleitor { get; set; }
 
-        public LoginModel()
+        public LoginModel() { }
+
+        public LoginModel(string username, string password, Guid eleitorId)
         {
+            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(username), "O username não pode ser vazio.");
+            ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(password), "O password não pode ser vazio.");
+
+            Username = username;
+            Password = password;
+            EleitorId = eleitorId;
             CriadoEm = DateTime.UtcNow;
             Status = true;
+            Token = "TOKEN_TESTE";
         }
 
         public async Task<bool> Login()
