@@ -14,7 +14,7 @@ namespace VotaFacil.Infrastructure.Repositorios
             _contexto = contexto;
         }
 
-        public async  Task<bool> Login(string username, string password)
+        public async Task<bool> Login(string username, string password)
         {
             var user = await _contexto.Set<LoginModel>()
                                       .FirstOrDefaultAsync(u => u.Username == username && u.Password == password);

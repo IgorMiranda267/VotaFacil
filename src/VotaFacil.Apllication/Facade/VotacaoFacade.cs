@@ -53,5 +53,12 @@ namespace VotaFacil.Apllication.Facade
         {
 
         }
+
+        public async Task<List<CandidatoDTO>> BuscarTodosCandidato()
+        {
+            var candidatosList = await _votacaoRepositorio.BuscarTodosCandidato();
+          
+            return  _mapper.Map<List<CandidatoDTO>>(candidatosList);
+        }
     }
 }

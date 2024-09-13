@@ -12,5 +12,6 @@ namespace VotaFacil.Domain.Interfaces
         Task<bool> AdicionarCandidato(CandidatoModel candidato);
         Task<bool> AtualizarCandidato(CandidatoModel candidato);
         Task DeletarCandidato(Guid idCandidato);
+        Task<List<CandidatoModel>> BuscarTodosCandidato();
     }
 }

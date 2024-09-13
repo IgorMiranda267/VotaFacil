@@ -1,21 +1,23 @@
-﻿
+﻿@model IEnumerable<VotaFacil.Apllication.DTO.CandidatoDTO>
+
 @{
     ViewBag.Title = "EscolhaCandidato";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
-    //Layout = "~/Views/Shared/EscolhaCandidato.cshtml";
 }
 
 <div class="container">
     <h2>Votação</h2>
     <div class="row">
-        @for (int i = 0; i < 5; i++) // Supondo que você tenha 5 candidatos
+        @foreach (var candidato in Model)
+
         {
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="~/images/candidato@i.jpg" class="card-img-top" alt="Foto do Candidato">
+                    <img src="~/images/@(candidato.Foto != null ? candidato.Foto.FileName : "default.jpg")" class="card-img-top" alt="Foto do Candidato">
                     <div class="card-body">
-                        <h5 class="card-title">Nome do Candidato @i</h5>
-                        <p class="card-text">Descrição do Candidato @i</p>
+                        <h5 class="card-title">@candidato.Nome</h5>
+                        <p class="card-text">@candidato.Descricao</p>
                         <a href="#" class="btn btn-primary">Votar</a>
                     </div>
                 </div>

@@ -65,5 +65,10 @@ namespace VotaFacil.Infra.Data.Repositorios
             _contexto.Candidatos.Remove(cadidato);
             await _contexto.SaveChangesAsync();
         }
+
+        public async Task<List<CandidatoModel>> BuscarTodosCandidato()
+        {
+            return await _contexto.Candidatos.ToListAsync();
+        }
     }
 }

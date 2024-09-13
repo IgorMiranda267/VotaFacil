@@ -27,7 +27,8 @@ namespace VotaFacil.WebUI.Controllers
 
         public async Task<IActionResult> EscolhaCandidato()
         {
-            return View("EscolhaCandidato");
+            var candidatosList = await _votacaoFacade.BuscarTodosCandidato();
+            return View("EscolhaCandidato", candidatosList);
         }
 
         [HttpPost]
@@ -42,11 +43,11 @@ namespace VotaFacil.WebUI.Controllers
                 }
 
                 // Salvar a foto no sistema de arquivos
-                var filePath = Path.Combine("wwwroot/images", model.Foto.FileName);
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await model.Foto.CopyToAsync(stream);
-                }
+                //var filePath = Path.Combine("wwwroot/images", model.Foto.FileName);
+                //using (var stream = new FileStream(filePath, FileMode.Create))
+                //{
+                //    await model.Foto.CopyToAsync(stream);
+                //}
 
                 var result = await _votacaoFacade.AdicionarCandidato(model);
                 if (result)
