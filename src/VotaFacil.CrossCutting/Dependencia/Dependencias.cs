@@ -41,6 +41,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         {
             services.AddScoped<LoginFacade>();
             services.AddScoped<EleitorFacade>();
+            services.AddScoped<VotacaoFacade>();
         }
 
         private static void AutoMapper(IServiceCollection services)

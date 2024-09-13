@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VotaFacil.Domain.Entidades;
 using VotaFacil.Domain.Interfaces;
+using VotaFacil.Domain.Model;
 using VotaFacil.Infra.Data.Contexto;
 
 namespace VotaFacil.Infra.Data.Repositorios
@@ -40,6 +41,28 @@ namespace VotaFacil.Infra.Data.Repositorios
         {
             var votacao = await _contexto.Votacoes.FindAsync(id);
             _contexto.Votacoes.Remove(votacao);
+            await _contexto.SaveChangesAsync();
+        }
+
+        public async Task<bool> AdicionarCandidato(CandidatoModel candidato)
+        {
+            _contexto.Candidatos.Add(candidato);
+            var result = await _contexto.SaveChangesAsync();
+
+            return result > 0;
+        }
+
+        public async Task<bool> AtualizarCandidato(CandidatoModel candidato)
+        {
+            _contexto.Candidatos.Update(candidato);
+            var result = await _contexto.SaveChangesAsync();
+            return result > 0;
+        }
+
+        public async Task DeletarCandidato(Guid idCandidato)
+        {
+            var cadidato = await _contexto.Candidatos.FindAsync(idCandidato);
+            _contexto.Candidatos.Remove(cadidato);
             await _contexto.SaveChangesAsync();
         }
     }

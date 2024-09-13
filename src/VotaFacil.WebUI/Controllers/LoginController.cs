@@ -36,9 +36,13 @@ namespace VotaFacil.WebUI.Controllers
             {
                 // Instancia o LoginViewModel para validar o CPF
                 var loginViewModel = new LoginViewModel(model.Username, model.Password);
-                await _loginFacade.Login(model.Username, model.Password);
+                var login = await _loginFacade.Login(model.Username, model.Password);
 
-                return RedirectToAction("Index", "Home");
+                if(login)
+                    return RedirectToAction("Index", "Home");
+
+                ViewBag.ErrorMessage = "Login inválido, tente novamente!";
+                return View("Login");
             }
             catch (ArgumentException ex)
             {

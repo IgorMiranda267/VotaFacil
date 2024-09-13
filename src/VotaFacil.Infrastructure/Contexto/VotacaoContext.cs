@@ -14,6 +14,7 @@ namespace VotaFacil.Infra.Data.Contexto
         public DbSet<VotoModel> Votos { get; set; }
         public DbSet<LoginModel> Logins { get; set; }
         public DbSet<ContaEthereumModel> ContasEthereum { get; set; }
+        public DbSet<CandidatoModel> Candidatos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

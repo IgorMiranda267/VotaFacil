@@ -1,4 +1,5 @@
 ﻿using VotaFacil.Domain.Entidades;
+using VotaFacil.Domain.Model;
 
 namespace VotaFacil.Domain.Interfaces
 {
@@ -8,5 +9,8 @@ namespace VotaFacil.Domain.Interfaces
         Task<IEnumerable<VotacaoModel>> ObterTodasVotacoes();
         Task AdicionarVotacao(VotacaoModel votacao);
         Task AtualizarVotacao(VotacaoModel votacao);
+        Task<bool> AdicionarCandidato(CandidatoModel candidato);
+        Task<bool> AtualizarCandidato(CandidatoModel candidato);
+        Task DeletarCandidato(Guid idCandidato);
     }
 }

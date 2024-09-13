@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using VotaFacil.Apllication.DTO;
 using VotaFacil.Domain.Entidades;
+using VotaFacil.Domain.Model;
 
 namespace VotaFacil.Apllication.Mapper
 {
@@ -9,6 +10,7 @@ namespace VotaFacil.Apllication.Mapper
         public MappingProfile()
         {
             CreateMap<EleitorDTO, EleitorModel>().ReverseMap();
+            CreateMap<CandidatoDTO, CandidatoModel>().ReverseMap();
         }
     }
 }
