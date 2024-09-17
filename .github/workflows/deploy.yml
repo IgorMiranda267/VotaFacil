@@ -13,17 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build project
-      run: npm run build
-
     - name: Deploy to EC2
       uses: appleboy/ssh-action@v0.1.5
       with:
@@ -31,8 +20,10 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
-          cd /path/to/your/app
-          git pull origin main
-          npm install
-          npm run build
-          pm2 restart all
+          cd /home/ec2-user
+          if [ -d "my-app" ]; then
+            rm -rf my-app
+          fi
+          git clone https://github.com/IgorMiranda267/VotaFacil.git my-app
+          cd my-app
+          docker compose -f "docker-compose.yml" up -d --build 
