@@ -14,7 +14,7 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # Expondo as portas necessárias
-EXPOSE 8080
+EXPOSE 443
 
 # Definindo o ponto de entrada
 ENTRYPOINT ["dotnet", "VotaFacil.WebUI.dll"]
