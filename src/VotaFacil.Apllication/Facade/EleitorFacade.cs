@@ -8,15 +8,17 @@ namespace VotaFacil.Apllication.Facade
     public class EleitorFacade
     {
         private readonly IEleitorRepositorio _eleitor;
+        private readonly ILoginRepositorio _loginRepositorio;
         private readonly IMapper _mapper;
 
-        public EleitorFacade(IEleitorRepositorio eleitorRepositorio, IMapper mapper)
+        public EleitorFacade(IEleitorRepositorio eleitorRepositorio, IMapper mapper, ILoginRepositorio loginRepositorio)
         {
             _mapper = mapper;
             _eleitor = eleitorRepositorio;
+            _loginRepositorio = loginRepositorio;
         }
 
-        public async Task CadastarEleitor(EleitorDTO eleitor)
+        public async Task<(bool, string)> CadastarEleitor(EleitorDTO eleitor)
         {
             var eleitorModel = new EleitorModel(
                 eleitor.Nome,
@@ -27,6 +29,7 @@ namespace VotaFacil.Apllication.Facade
                 eleitor.Password
             );
             await _eleitor.AdicionarEleitor(eleitorModel);
+            return await _loginRepositorio.Login(eleitor.Username, eleitor.Password);
         }
 
         public async Task AtualizarEleitor(EleitorDTO eleitor)
