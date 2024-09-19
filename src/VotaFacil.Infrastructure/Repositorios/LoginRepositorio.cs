@@ -8,22 +8,44 @@ namespace VotaFacil.Infrastructure.Repositorios
     public class LoginRepositorio : ILoginRepositorio
     {
         private readonly VotacaoContext _contexto;
+        private readonly IJwtTokenValidator _jwtTokenValidator;
 
-        public LoginRepositorio(VotacaoContext contexto)
+        public LoginRepositorio(VotacaoContext contexto, IJwtTokenValidator jwtTokenValidator)
         {
             _contexto = contexto;
+            _jwtTokenValidator = jwtTokenValidator;
         }
 
-        public async Task<bool> Login(string username, string password)
+        public async Task<(bool, string)> Login(string username, string password)
         {
             var user = await _contexto.Set<LoginModel>()
                                       .FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
-            return user != null;
+
+            if (user != null)
+            {
+                if (_jwtTokenValidator.ValidarToken(user.Token))
+                    return (true, user.Token);
+
+                var token = _jwtTokenValidator.GerarToken(user);
+                user.Token = token;
+                user.UltimoLogin = DateTime.UtcNow;
+                user.ExpiracaoToken = DateTime.UtcNow.AddHours(1); // Defina a expiração do token conforme necessário
+
+                _contexto.Logins.Update(user);
+                await _contexto.SaveChangesAsync();
+
+                return (true, token);
+            }
+            return (false, null);
         }
 
-        public Task Logout()
+        public async Task Logout(string token)
         {
-            return Task.CompletedTask;
+            if (_jwtTokenValidator.ValidarToken(token))
+            {
+                _jwtTokenValidator.InvalidarToken(token);
+            }
+            await Task.CompletedTask;
         }
     }
 }

@@ -20,7 +20,11 @@ namespace VotaFacil.WebUI.Controllers
 
         public async Task<IActionResult> Logout()
         {
-            await _loginFacade.Logout();
+            if (Request.Cookies.TryGetValue("AuthToken", out var token))
+            {
+                await _loginFacade.Logout(token);
+                Response.Cookies.Delete("AuthToken");
+            }
             return View("Login");
         }
 
@@ -34,12 +38,14 @@ namespace VotaFacil.WebUI.Controllers
         {
             try
             {
-                // Instancia o LoginViewModel para validar o CPF
-                var loginViewModel = new LoginViewModel(model.Username, model.Password);
-                var login = await _loginFacade.Login(model.Username, model.Password);
+                var (success, token) = await _loginFacade.Login(model.Username, model.Password);
 
-                if(login)
+                if (success)
+                {
+                    // Armazene o token em um cookie ou no local storage, conforme necessário
+                    Response.Cookies.Append("AuthToken", token, new CookieOptions { HttpOnly = true, Secure = true });
                     return RedirectToAction("Index", "Home");
+                }
 
                 ViewBag.ErrorMessage = "Login inválido, tente novamente!";
                 return View("Login");

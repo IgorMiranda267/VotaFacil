@@ -1,11 +1,12 @@
 ﻿using System.Security.Claims;
+using VotaFacil.Domain.Entidades;
 
 namespace VotaFacil.Domain.Interfaces
 {
     public interface IJwtTokenValidator
     {
-        string GerarToken(string Name, string Username, string secretKey, int expiracaoHoras = 1);
-        ClaimsPrincipal? ValidarToken(string token);
+        string GerarToken(LoginModel user);
+        bool ValidarToken(string token);
         void InvalidarToken(string token);
     }
 }

@@ -1,11 +1,10 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Linq;
+using VotaFacil.Domain.Entidades;
 using VotaFacil.Domain.Interfaces;
 
 namespace VotaFacil.Infrastructure.Service
@@ -16,6 +15,9 @@ namespace VotaFacil.Infrastructure.Service
         private readonly Dictionary<string, DateTime> _revokedTokens;
         private readonly TimeSpan _tokenRevocationDuration;
 
+        public JwtTokenValidator()
+        {
+        }
         public JwtTokenValidator(string secretKey, TimeSpan tokenRevocationDuration)
         {
             _secretKey = secretKey;
@@ -23,27 +25,29 @@ namespace VotaFacil.Infrastructure.Service
             _tokenRevocationDuration = tokenRevocationDuration; ;
         }
 
-        public string GerarToken(string Name, string Username, string secretKey, int expiracaoHoras = 1)
+
+        public string GerarToken(LoginModel user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secretKey);
+            var key = Encoding.ASCII.GetBytes(this._secretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, Username)
+                    new Claim(ClaimTypes.NameIdentifier, user.EleitorId.ToString()), // Armazena o ID do usuário
+                    new Claim(ClaimTypes.Name, user.Username), // Armazena o nome de usuário
                 }),
-                Expires = DateTime.UtcNow.AddHours(expiracaoHoras),
+                Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
 
-        public ClaimsPrincipal? ValidarToken(string token)
+        public bool ValidarToken(string token)
         {
             if (RevogarToken(token))
-                return null; 
+                return false;
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_secretKey);
@@ -59,11 +63,11 @@ namespace VotaFacil.Infrastructure.Service
                     ClockSkew = TimeSpan.Zero
                 }, out SecurityToken validatedToken);
 
-                return principal;
+                return principal != null;
             }
             catch
             {
-                return null;
+                return false;
             }
         }
 

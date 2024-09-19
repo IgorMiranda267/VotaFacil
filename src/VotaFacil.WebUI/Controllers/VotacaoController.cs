@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VotaFacil.Apllication.DTO;
 using VotaFacil.Apllication.Facade;
-using VotaFacil.Domain.Model;
-using VotaFacil.WebUI.Models;
 
 namespace VotaFacil.WebUI.Controllers
 {

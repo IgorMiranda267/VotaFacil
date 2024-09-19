@@ -8,8 +8,8 @@ namespace VotaFacil.Domain.Interfaces
 {
     public interface ILoginRepositorio
     {
-        Task<bool> Login(string username, string password);
-        Task Logout();
+        Task<(bool, string)> Login(string username, string password);
+        Task Logout(string token);
 
     }
 }

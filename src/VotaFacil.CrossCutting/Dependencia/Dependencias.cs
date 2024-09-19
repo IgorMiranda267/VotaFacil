@@ -9,6 +9,7 @@ using VotaFacil.Domain.Interfaces;
 using VotaFacil.Infra.Data.Contexto;
 using VotaFacil.Infra.Data.Repositorios;
 using VotaFacil.Infrastructure.Repositorios;
+using VotaFacil.Infrastructure.Service;
 
 namespace VotaFacil.Infra.CrossCutting.Dependencia
 {
@@ -16,16 +17,17 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
     {
         public static IServiceCollection AddDependencyResolver(this IServiceCollection services, IConfiguration configuration)
         {
-            ConfiguracaoBaseDados(services, configuration);
-            Repositorios(services);
             Facade(services);
+            Service(services);
             AutoMapper(services);
+            Repositorios(services);
+            ConfiguracaoBaseDados(services, configuration);
             return services;
         }
 
         private static void ConfiguracaoBaseDados(IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
             services.AddDbContext<VotacaoContext>(options =>
                 options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL"), b => b.MigrationsAssembly("VotaFacil.Infrastructure")));
         }
@@ -47,6 +49,14 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         private static void AutoMapper(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingProfile));
+        }
+
+        private static void Service(IServiceCollection services)
+        {
+            var secretKey = Environment.GetEnvironmentVariable("SECRET_KEY_JWT");
+            var tokenRevocationDuration = TimeSpan.FromHours(1);
+            services.AddScoped<IJwtTokenValidator, JwtTokenValidator>();
+            services.AddSingleton<IJwtTokenValidator>(provider => new JwtTokenValidator(secretKey, tokenRevocationDuration));
         }
     }
 }
