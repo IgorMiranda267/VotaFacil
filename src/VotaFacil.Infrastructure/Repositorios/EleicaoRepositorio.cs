@@ -25,22 +25,22 @@ namespace VotaFacil.Infra.Data.Repositorios
             return await _contexto.Votacoes.ToListAsync();
         }
 
-        public async Task AdicionarEleicao(EleicaoModel votacao)
+        public async Task AdicionarEleicao(EleicaoModel eleicao)
         {
-            _contexto.Votacoes.Add(votacao);
+            _contexto.Votacoes.Add(eleicao);
             await _contexto.SaveChangesAsync();
         }
 
-        public async Task AtualizarEleicao(EleicaoModel votacao)
+        public async Task AtualizarEleicao(EleicaoModel eleicao)
         {
-            _contexto.Votacoes.Update(votacao);
+            _contexto.Votacoes.Update(eleicao);
             await _contexto.SaveChangesAsync();
         }
 
         public async Task DeletarEleicao(Guid id)
         {
-            var votacao = await _contexto.Votacoes.FindAsync(id);
-            _contexto.Votacoes.Remove(votacao);
+            var eleicao = await _contexto.Votacoes.FindAsync(id);
+            _contexto.Votacoes.Remove(eleicao);
             await _contexto.SaveChangesAsync();
         }
 

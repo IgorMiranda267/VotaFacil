@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VotaFacil.Infra.Data.Contexto;
@@ -11,9 +12,11 @@ using VotaFacil.Infra.Data.Contexto;
 namespace VotaFacil.Infrastructure.Migrations
 {
     [DbContext(typeof(VotacaoContext))]
-    partial class VotacaoContextModelSnapshot : ModelSnapshot
+    [Migration("20240924013020_RelacaoEntreVotoCandidato")]
+    partial class RelacaoEntreVotoCandidato
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

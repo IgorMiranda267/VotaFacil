@@ -6,10 +6,10 @@ namespace VotaFacil.WebUI.Controllers
 {
     public class VotacaoController : Controller
     {
-        private readonly VotacaoFacade _votacaoFacade;
+        private readonly EleicaoFacade _votacaoFacade;
         private readonly EleicaoFacade _eleicaoFacade;
 
-        public VotacaoController(VotacaoFacade votacaoFacade, EleicaoFacade eleicaoFacade)
+        public VotacaoController(EleicaoFacade votacaoFacade, EleicaoFacade eleicaoFacade)
         {
             _votacaoFacade = votacaoFacade;
             _eleicaoFacade = eleicaoFacade;
@@ -20,12 +20,12 @@ namespace VotaFacil.WebUI.Controllers
             return View();
         }
 
-        public async Task<IActionResult> CadastrarCandidato()
+        public IActionResult CadastrarCandidato()
         {
             return View("CadastrarCandidato");
         }
 
-        public async Task<IActionResult> CadastrarEleicao()
+        public IActionResult CadastrarEleicao()
         {
             return View("CadastrarEleicao");
         }

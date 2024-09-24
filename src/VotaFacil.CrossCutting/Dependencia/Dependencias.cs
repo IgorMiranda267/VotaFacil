@@ -43,7 +43,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         {
             services.AddScoped<LoginFacade>();
             services.AddScoped<EleitorFacade>();
-            services.AddScoped<VotacaoFacade>();
+            services.AddScoped<EleicaoFacade>();
             services.AddScoped<EleicaoFacade>();
         }
 

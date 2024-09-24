@@ -35,8 +35,8 @@ namespace VotaFacil.Domain.Entidades
             Id = Guid.NewGuid();
             Nome = nome;
             Descricao = descricao;
-            Inicio = inicio;
-            Fim = fim;
+            Inicio = DateTime.SpecifyKind(inicio, DateTimeKind.Utc);
+            Fim = DateTime.SpecifyKind(fim, DateTimeKind.Utc);
         }
 
         public EleicaoModel(EleitorModel votante, VotoModel opcaoVoto)
