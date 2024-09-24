@@ -20,7 +20,7 @@ namespace VotaFacil.Domain.Entidades
 
         [Column("votacao_id"), Required]
         public Guid VotacaoId { get; set; }
-        public VotacaoModel Votacao { get; set; }
+        public EleicaoModel Votacao { get; set; }
 
         [Column("candidato_id"), Required]
         public Guid CandidatoId { get; set; }

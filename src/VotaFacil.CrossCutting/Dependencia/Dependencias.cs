@@ -35,7 +35,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         private static void Repositorios(IServiceCollection services)
         {
             services.AddScoped<IEleitorRepositorio, EleitorRepositorio>();
-            services.AddScoped<IVotacaoRepositorio, VotacaoRepositorio>();
+            services.AddScoped<IEleicaoRepositorio, EleicaoRepositorio>();
             services.AddScoped<ILoginRepositorio, LoginRepositorio>();
         }
 
@@ -44,6 +44,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
             services.AddScoped<LoginFacade>();
             services.AddScoped<EleitorFacade>();
             services.AddScoped<VotacaoFacade>();
+            services.AddScoped<EleicaoFacade>();
         }
 
         private static void AutoMapper(IServiceCollection services)

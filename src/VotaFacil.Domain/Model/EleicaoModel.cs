@@ -4,10 +4,14 @@ using VotaFacil.Domain.Model;
 
 namespace VotaFacil.Domain.Entidades
 {
-    [Table("votacao")]
-    public class VotacaoModel
+    [Table("eleicao")]
+    public class EleicaoModel
     {
         [Key, Column("id")] public Guid Id { get; set; }
+
+        [Required, Column("nome"), MaxLength(100)] public string Nome { get; set; }
+
+        [Required, Column("descricao"), MaxLength(500)] public string Descricao { get; set; }
 
         [Required, Column("inicio")] public DateTime Inicio { get; private set; }
 
@@ -21,9 +25,21 @@ namespace VotaFacil.Domain.Entidades
 
         private readonly List<Guid> _votosRegistrados = new List<Guid>();
 
-        public VotacaoModel() { }
+        public EleicaoModel() { }
 
-        public VotacaoModel(EleitorModel votante, VotoModel opcaoVoto)
+        public EleicaoModel(string nome, string descricao, DateTime inicio, DateTime fim)
+        {
+            if (inicio >= fim)
+                throw new ArgumentException("A data de início deve ser anterior à data de fim.");
+
+            Id = Guid.NewGuid();
+            Nome = nome;
+            Descricao = descricao;
+            Inicio = inicio;
+            Fim = fim;
+        }
+
+        public EleicaoModel(EleitorModel votante, VotoModel opcaoVoto)
         {
             if (!EstaDentroDoPeriodo(DateTime.Now))
                 throw new Exception("Fora do período de votação.");

@@ -7,10 +7,12 @@ namespace VotaFacil.WebUI.Controllers
     public class VotacaoController : Controller
     {
         private readonly VotacaoFacade _votacaoFacade;
+        private readonly EleicaoFacade _eleicaoFacade;
 
-        public VotacaoController(VotacaoFacade votacaoFacade)
+        public VotacaoController(VotacaoFacade votacaoFacade, EleicaoFacade eleicaoFacade)
         {
             _votacaoFacade = votacaoFacade;
+            _eleicaoFacade = eleicaoFacade;
         }
 
         public IActionResult Index()
@@ -21,6 +23,11 @@ namespace VotaFacil.WebUI.Controllers
         public async Task<IActionResult> CadastrarCandidato()
         {
             return View("CadastrarCandidato");
+        }
+
+        public async Task<IActionResult> CadastrarEleicao()
+        {
+            return View("CadastrarEleicao");
         }
 
         public async Task<IActionResult> EscolhaCandidato()
@@ -60,6 +67,19 @@ namespace VotaFacil.WebUI.Controllers
                 ViewBag.ErrorMessage = "Falha ao cadastrar candidato";
                 return View("CadastrarCandidato");
             }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CadastrarEleicao(EleicaoDTO eleicao)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ErrorMessage = "Preencha os dados corretamente!";
+                return View("CadastrarEleicao");
+            }
+
+            await _eleicaoFacade.CadastrarEleicao(eleicao);
+            return View("CadastrarEleicao");
         }
     }
 }

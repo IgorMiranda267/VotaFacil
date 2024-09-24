@@ -3,12 +3,12 @@ using VotaFacil.Domain.Model;
 
 namespace VotaFacil.Domain.Interfaces
 {
-    public interface IVotacaoRepositorio
+    public interface IEleicaoRepositorio
     {
-        Task<VotacaoModel> ObterVotacaoPorId(Guid id);
-        Task<IEnumerable<VotacaoModel>> ObterTodasVotacoes();
-        Task AdicionarVotacao(VotacaoModel votacao);
-        Task AtualizarVotacao(VotacaoModel votacao);
+        Task<EleicaoModel> ObterVotacaoPorId(Guid id);
+        Task<IEnumerable<EleicaoModel>> ObterTodasEleicoes();
+        Task AdicionarEleicao(EleicaoModel votacao);
+        Task AtualizarEleicao(EleicaoModel votacao);
         Task<bool> AdicionarCandidato(CandidatoModel candidato);
         Task<bool> AtualizarCandidato(CandidatoModel candidato);
         Task DeletarCandidato(Guid idCandidato);

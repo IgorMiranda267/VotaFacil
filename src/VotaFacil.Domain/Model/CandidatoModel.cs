@@ -20,7 +20,7 @@ namespace VotaFacil.Domain.Model
         [NotMapped] public IFormFile Foto { get; set; }
 
         // Relação com VotacaoModel
-        public ICollection<VotacaoModel> Votacoes { get; set; } = new List<VotacaoModel>();
+        public ICollection<EleicaoModel> Votacoes { get; set; } = new List<EleicaoModel>();
 
         // Relação com VotoModel
         public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>();

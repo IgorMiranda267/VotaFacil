@@ -10,7 +10,7 @@ namespace VotaFacil.Infra.Data.Contexto
         { }
 
         public DbSet<EleitorModel> Eleitores { get; set; }
-        public DbSet<VotacaoModel> Votacoes { get; set; }
+        public DbSet<EleicaoModel> Votacoes { get; set; }
         public DbSet<VotoModel> Votos { get; set; }
         public DbSet<LoginModel> Logins { get; set; }
         public DbSet<ContaEthereumModel> ContasEthereum { get; set; }
@@ -26,8 +26,8 @@ namespace VotaFacil.Infra.Data.Contexto
                 .WithOne(l => l.Eleitor)
                 .HasForeignKey<LoginModel>(l => l.EleitorId);
 
-            // Configuração da relação de muitos para muitos entre VotacaoModel e CandidatoModel
-            builder.Entity<VotacaoModel>()
+            // Configuração da relação de muitos para muitos entre EleicaoModel e CandidatoModel
+            builder.Entity<EleicaoModel>()
                 .HasMany(v => v.Candidatos)
                 .WithMany(c => c.Votacoes);
 

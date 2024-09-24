@@ -6,38 +6,38 @@ using VotaFacil.Infra.Data.Contexto;
 
 namespace VotaFacil.Infra.Data.Repositorios
 {
-    public class VotacaoRepositorio : IVotacaoRepositorio
+    public class EleicaoRepositorio : IEleicaoRepositorio
     {
         private readonly VotacaoContext _contexto;
 
-        public VotacaoRepositorio(VotacaoContext contexto)
+        public EleicaoRepositorio(VotacaoContext contexto)
         {
             _contexto = contexto;
         }
 
-        public async Task<VotacaoModel> ObterVotacaoPorId(Guid id)
+        public async Task<EleicaoModel> ObterVotacaoPorId(Guid id)
         {
             return await _contexto.Votacoes.FindAsync(id);
         }
 
-        public async Task<IEnumerable<VotacaoModel>> ObterTodasVotacoes()
+        public async Task<IEnumerable<EleicaoModel>> ObterTodasEleicoes()
         {
             return await _contexto.Votacoes.ToListAsync();
         }
 
-        public async Task AdicionarVotacao(VotacaoModel votacao)
+        public async Task AdicionarEleicao(EleicaoModel votacao)
         {
             _contexto.Votacoes.Add(votacao);
             await _contexto.SaveChangesAsync();
         }
 
-        public async Task AtualizarVotacao(VotacaoModel votacao)
+        public async Task AtualizarEleicao(EleicaoModel votacao)
         {
             _contexto.Votacoes.Update(votacao);
             await _contexto.SaveChangesAsync();
         }
 
-        public async Task DeletarVotacao(Guid id)
+        public async Task DeletarEleicao(Guid id)
         {
             var votacao = await _contexto.Votacoes.FindAsync(id);
             _contexto.Votacoes.Remove(votacao);

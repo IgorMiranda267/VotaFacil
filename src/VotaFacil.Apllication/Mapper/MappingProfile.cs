@@ -11,6 +11,7 @@ namespace VotaFacil.Apllication.Mapper
         {
             CreateMap<EleitorDTO, EleitorModel>().ReverseMap();
             CreateMap<CandidatoDTO, CandidatoModel>().ReverseMap();
+            CreateMap<EleicaoModel, EleicaoDTO>().ReverseMap();
         }
     }
 }

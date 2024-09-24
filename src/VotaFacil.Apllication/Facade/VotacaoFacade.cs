@@ -8,10 +8,10 @@ namespace VotaFacil.Apllication.Facade
 {
     public class VotacaoFacade
     {
-        private readonly IVotacaoRepositorio _votacaoRepositorio;
+        private readonly IEleicaoRepositorio _votacaoRepositorio;
         private IMapper _mapper;
 
-        public VotacaoFacade(IVotacaoRepositorio votacaoRepositorio, IMapper mapper)
+        public VotacaoFacade(IEleicaoRepositorio votacaoRepositorio, IMapper mapper)
         {
             _votacaoRepositorio = votacaoRepositorio;
             _mapper = mapper;
@@ -27,12 +27,12 @@ namespace VotaFacil.Apllication.Facade
 
         //}
         
-        public async Task AdicionarVotacao(VotacaoModel votacao)
+        public async Task AdicionarVotacao(EleicaoModel votacao)
         {
 
         }
         
-        public async Task AtualizarVotacao(VotacaoModel votacao)
+        public async Task AtualizarVotacao(EleicaoModel votacao)
         {
 
         }
