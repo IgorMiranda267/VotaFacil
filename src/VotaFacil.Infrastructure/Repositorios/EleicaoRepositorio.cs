@@ -15,14 +15,19 @@ namespace VotaFacil.Infra.Data.Repositorios
             _contexto = contexto;
         }
 
-        public async Task<EleicaoModel> ObterVotacaoPorId(Guid id)
+        #region ELEICAO
+        public async Task<EleicaoModel?> ObterVotacaoPorId(Guid? id)
         {
-            return await _contexto.Votacoes.FindAsync(id);
+            return await _contexto.Votacoes
+                .Include(e => e.Candidatos)
+                .FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<IEnumerable<EleicaoModel>> ObterTodasEleicoes()
         {
-            return await _contexto.Votacoes.ToListAsync();
+            return await _contexto.Votacoes
+                .Include(e => e.Candidatos)
+                .ToListAsync();
         }
 
         public async Task AdicionarEleicao(EleicaoModel eleicao)
@@ -33,6 +38,12 @@ namespace VotaFacil.Infra.Data.Repositorios
 
         public async Task AtualizarEleicao(EleicaoModel eleicao)
         {
+            try
+            {
+                _contexto.Votacoes.Update(eleicao);
+                await _contexto.SaveChangesAsync();
+            }
+            catch (Exception ex) { }
             _contexto.Votacoes.Update(eleicao);
             await _contexto.SaveChangesAsync();
         }
@@ -44,12 +55,45 @@ namespace VotaFacil.Infra.Data.Repositorios
             await _contexto.SaveChangesAsync();
         }
 
-        public async Task<bool> AdicionarCandidato(CandidatoModel candidato)
+        public async Task AdicionarCandidatoAEleicao(EleicaoModel eleicao, CandidatoModel candidato)
         {
-            _contexto.Candidatos.Add(candidato);
-            var result = await _contexto.SaveChangesAsync();
+            var eleicaoExistente = await _contexto.Votacoes
+                .Include(e => e.Candidatos)
+                .FirstOrDefaultAsync(e => e.Id == eleicao.Id);
 
-            return result > 0;
+            if (eleicaoExistente != null)
+            {
+                eleicaoExistente.Candidatos.Add(candidato);
+                await _contexto.SaveChangesAsync();
+            }
+        }
+        #endregion ELEICAO  
+
+        #region CANDIDATO
+        public async Task<bool> AdicionarCandidato(CandidatoModel candidato, EleicaoModel eleicao)
+        {
+            try
+            {
+                // Adiciona o candidato ao contexto
+                _contexto.Candidatos.Add(candidato);
+
+                // Marca a eleição como inalterada
+                _contexto.Entry(eleicao).State = EntityState.Unchanged;
+
+                // Adiciona o candidato à coleção de candidatos da eleição
+                eleicao.Candidatos.Add(candidato);
+
+                // Salva as alterações no banco de dados
+                var result = await _contexto.SaveChangesAsync();
+
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                // Log do erro
+                Console.WriteLine($"Erro ao adicionar candidato: {ex.Message}");
+                return false;
+            }
         }
 
         public async Task<bool> AtualizarCandidato(CandidatoModel candidato)
@@ -70,5 +114,11 @@ namespace VotaFacil.Infra.Data.Repositorios
         {
             return await _contexto.Candidatos.ToListAsync();
         }
+
+        public async Task<CandidatoModel> BuscarCandidatoPorId(Guid id)
+        {
+            return await _contexto.Candidatos.FindAsync(id);
+        }
+        #endregion CANDIDATO
     }
 }

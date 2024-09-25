@@ -4,6 +4,7 @@ namespace VotaFacil.Apllication.DTO
 {
     public class EleicaoDTO
     {
+        public Guid Id { get; set; }
         [Required]
         [MaxLength(100)]
         public string Nome { get; set; }

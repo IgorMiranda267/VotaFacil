@@ -51,7 +51,7 @@ namespace VotaFacil.WebUI.Controllers
 
         public IActionResult EscolhaCandidato()
         {
-            return RedirectToAction("EscolhaCandidato", "Votacao");
+            return RedirectToAction("EscolherEleicao", "Votacao");
         }
 
 

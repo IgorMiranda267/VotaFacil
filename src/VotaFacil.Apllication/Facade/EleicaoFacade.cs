@@ -18,10 +18,10 @@ namespace VotaFacil.Apllication.Facade
         }
 
         
-        public async Task<bool> AdicionarCandidato(CandidatoDTO candidato)
+        public async Task<bool> AdicionarCandidato(CandidatoDTO candidato, EleicaoModel eleicao)
         {
-            var cad = new CandidatoModel(candidato.Nome, candidato.Descricao, candidato.Foto);
-            return await _eleicaoRepositorio.AdicionarCandidato(cad);
+            var cad = new CandidatoModel(candidato.Nome, candidato.Descricao, candidato?.FotoPath);
+            return await _eleicaoRepositorio.AdicionarCandidato(cad, eleicao);
         }
         
         public async Task<bool> AtualizarCandidato(CandidatoDTO candidato)
@@ -29,7 +29,13 @@ namespace VotaFacil.Apllication.Facade
             var candidatoMap = _mapper.Map<CandidatoModel>(candidato);
             return await _eleicaoRepositorio.AtualizarCandidato(candidatoMap);
         }
-        
+
+        public async Task<CandidatoModel> BuscarCandidatoPorId(Guid id)
+        {
+            return await _eleicaoRepositorio.BuscarCandidatoPorId(id);
+        }
+
+
         public async Task DeletarCandidato(Guid idCandidato)
         {
 
@@ -53,7 +59,6 @@ namespace VotaFacil.Apllication.Facade
 
             await _eleicaoRepositorio.AdicionarEleicao(eleicaoModel);
         }
-
 
         public async Task<EleicaoModel> ObterVotacaoPorId(Guid id)
         {

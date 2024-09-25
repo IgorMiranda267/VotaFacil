@@ -1,0 +1,26 @@
+﻿@model IEnumerable<VotaFacil.Apllication.DTO.EleicaoDTO>
+
+@{
+    ViewBag.Title = "EscolherEleicao";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Escolha uma Eleição</h2>
+    <div class="row">
+        @foreach (var eleicao in Model)
+
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@eleicao.Nome</h5>
+                        <p class="card-text">@eleicao.Descricao</p>
+                        <a href="@Url.Action("EscolhaCandidato", "Votacao", new { eleicaoId = eleicao.Id })" class="btn btn-primary">Escolher</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

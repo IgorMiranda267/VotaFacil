@@ -1,7 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// C#
+using Amazon.Extensions.NETCore.Setup;
+using Amazon.Runtime;
+using Amazon.S3;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Npgsql;
 using VotaFacil.Apllication.Controller;
 using VotaFacil.Apllication.Facade;
 using VotaFacil.Apllication.Mapper;
@@ -19,6 +22,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         {
             Facade(services);
             Service(services);
+            AmazonS3(services, configuration);
             AutoMapper(services);
             Repositorios(services);
             ConfiguracaoBaseDados(services, configuration);
@@ -58,6 +62,20 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
             var tokenRevocationDuration = TimeSpan.FromHours(1);
             services.AddScoped<IJwtTokenValidator, JwtTokenValidator>();
             services.AddSingleton<IJwtTokenValidator>(provider => new JwtTokenValidator(secretKey, tokenRevocationDuration));
+        }
+
+        private static void AmazonS3(IServiceCollection services, IConfiguration configuration)
+        {
+            // Configurar o cliente S3
+            //var AccessKey = Environment.GetEnvironmentVariable("SECRET_KEY_JWT");
+            //var SecretKey = Environment.GetEnvironmentVariable("SECRET_KEY_JWT");
+            var awsOptions = configuration.GetAWSOptions();
+            awsOptions.Credentials = new BasicAWSCredentials(
+                configuration["AWS:AccessKey"],
+                configuration["AWS:SecretKey"]
+            );
+            services.AddDefaultAWSOptions(awsOptions);
+            services.AddAWSService<IAmazonS3>();
         }
     }
 }

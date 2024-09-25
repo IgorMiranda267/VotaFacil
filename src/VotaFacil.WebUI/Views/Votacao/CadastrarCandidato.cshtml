@@ -7,21 +7,39 @@
 
 <div class="container">
     <h2>Cadastrar Candidato</h2>
-    <form asp-action="CadastrarCandidato" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="Nome">Nome</label>
-            <input type="text" class="form-control" id="Nome" name="Nome" required>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
         </div>
-        <div class="form-group">
-            <label for="Descricao">Descrição</label>
-            <textarea class="form-control" id="Descricao" name="Descricao" rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="Foto">Foto</label>
-            <input type="file" class="form-control-file" id="Foto" name="Foto" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </form>
+    }
+    else
+    {
+        <form asp-action="CadastrarCandidato" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="Eleicao">Escolha a Eleição</label>
+                <select class="form-control" id="Eleicao" name="eleicaoId" required>
+                    @foreach (var eleicao in ViewBag.Eleicoes)
+                    {
+                        <option value="@eleicao.Id">@eleicao.Nome</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="text" class="form-control" id="Nome" name="Nome" required>
+            </div>
+            <div class="form-group">
+                <label for="Descricao">Descrição</label>
+                <textarea class="form-control" id="Descricao" name="Descricao" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Foto">Foto</label>
+                <input type="file" class="form-control-file" id="Foto" name="Foto" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    }
 </div>
 
 <!-- Adicione o link para o Bootstrap no seu layout -->

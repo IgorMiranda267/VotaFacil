@@ -27,17 +27,16 @@ namespace VotaFacil.Domain.Model
 
         public CandidatoModel() { }
 
-        public CandidatoModel(string nome, string descricao, IFormFile foto)
+        public CandidatoModel(string nome, string descricao, string? fotoPath)
         {
             ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(nome), "O nome não pode ser vazio.");
             ValidacaoDeExcecaoDominio.When(string.IsNullOrEmpty(descricao), "A descrição não pode ser vazia.");
-            ValidacaoDeExcecaoDominio.When(foto == null, "A foto não pode ser nula.");
+            ValidacaoDeExcecaoDominio.When(fotoPath == null, "A foto não pode ser nula.");
 
             Id = Guid.NewGuid();
             Nome = nome;
             Descricao = descricao;
-            Foto = foto;
-            FotoPath = $"images/{foto.FileName}";
+            FotoPath = fotoPath;
         }
     }
 }
