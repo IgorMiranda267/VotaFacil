@@ -38,12 +38,6 @@ namespace VotaFacil.Infra.Data.Repositorios
 
         public async Task AtualizarEleicao(EleicaoModel eleicao)
         {
-            try
-            {
-                _contexto.Votacoes.Update(eleicao);
-                await _contexto.SaveChangesAsync();
-            }
-            catch (Exception ex) { }
             _contexto.Votacoes.Update(eleicao);
             await _contexto.SaveChangesAsync();
         }

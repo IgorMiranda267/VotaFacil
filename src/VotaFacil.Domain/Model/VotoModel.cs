@@ -11,26 +11,22 @@ namespace VotaFacil.Domain.Entidades
     {
         [Column("id"), Key] public Guid Id { get; private set; }
 
-        [Column("eleitor_id"), Required]
-        public Guid EleitorId { get; private set; }
-        public EleitorModel Eleitor { get; set; }
+        [Column("eleitor_id"), Required] public Guid EleitorId { get; private set; }
 
-        [Column("opcao_voto_id"), Required]
-        public Guid OpcaoVotoId { get; private set; }
+        [Column("opcao_voto_id"), Required] public Guid OpcaoVotoId { get; private set; }
 
-        [Column("votacao_id"), Required]
-        public Guid VotacaoId { get; set; }
-        public EleicaoModel Votacao { get; set; }
+        [Column("votacao_id"), Required] public Guid VotacaoId { get; set; }
 
-        [Column("candidato_id"), Required]
-        public Guid CandidatoId { get; set; }
-        public CandidatoModel Candidato { get; set; }
+        [Column("candidato_id"), Required] public Guid CandidatoId { get; set; }
 
         [Column("data_hora_voto"), Required] public DateTime DataHoraVoto { get; private set; }
 
         [Column("hash_anterior"), MaxLength(64)] public string HashAnterior { get; private set; }
 
         [Column("hash_atual"), MaxLength(64)] public string HashAtual { get; private set; }
+        public EleicaoModel Votacao { get; set; }
+        public EleitorModel Eleitor { get; set; }
+        public CandidatoModel Candidato { get; set; }
 
         public VotoModel(Guid eleitorId, Guid opcaoVotoId, string hashAnterior)
         {

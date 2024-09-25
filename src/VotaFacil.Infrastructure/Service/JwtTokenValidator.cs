@@ -88,5 +88,34 @@ namespace VotaFacil.Infrastructure.Service
             }
             return false;
         }
+
+        public Guid? ObterEleitorIdDoToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_secretKey);
+            try
+            {
+                var principal = tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    RequireSignedTokens = false,
+                    ClockSkew = TimeSpan.Zero
+                }, out SecurityToken validatedToken);
+
+                var eleitorIdClaim = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+                if (eleitorIdClaim != null && Guid.TryParse(eleitorIdClaim.Value, out var eleitorId))
+                {
+                    return eleitorId;
+                }
+            }
+            catch
+            {
+                throw new Exception("Token inválido.");
+            }
+            return null;
+        }
     }
 }
