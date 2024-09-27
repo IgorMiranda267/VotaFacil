@@ -2,15 +2,17 @@
 
 @{
     ViewBag.Title = "Escolha Candidato";
-
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
     <h2>Escolha um Candidato</h2>
+
+    <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
+    <div id="successMessage" class="alert alert-success" style="display:none;"></div>
+
     <div class="row">
         @foreach (var candidato in Model)
-
         {
             <div class="col-md-4">
                 <div class="card mb-4">
@@ -18,10 +20,8 @@
                     <div class="card-body">
                         <h5 class="card-title">@candidato.Nome</h5>
                         <p class="card-text">@candidato.Descricao</p>
-                        <form asp-action="Votar" method="post">
-                            <input type="hidden" name="candidatoId" value="@candidato.Id" />
-                            <input type="hidden" name="eleicaoId" value="@ViewBag.EleicaoId" />
-                            <button type="submit" class="btn btn-primary">Votar</button>
+                        <form onsubmit="return votar(event, '@candidato.Id', '@ViewBag.EleicaoId')">
+                            <button type="submit" class="btn btn-primary votarBtn">Votar</button>
                         </form>
                     </div>
                 </div>
@@ -29,3 +29,31 @@
         }
     </div>
 </div>
+
+<script>
+    function votar(event, candidatoId, eleicaoId) {
+        event.preventDefault();
+
+        $.ajax({
+            url: '@Url.Action("Votar", "Votacao")',
+            type: 'POST',
+            data: { candidatoId: candidatoId, eleicaoId: eleicaoId },
+            success: function (result) {
+                if (result.success) {
+                    $('#successMessage').text(result.message).show();
+                    $('#errorMessage').hide();
+                } else {
+                    $('#errorMessage').text(result.message).show();
+                    $('#successMessage').hide();
+                    $('.votarBtn').hide(); // Esconde todos os botões de votar
+                }
+            },
+            error: function (xhr, status, error) {
+                $('#errorMessage').text("Ocorreu um erro ao registrar o voto.").show();
+                $('#successMessage').hide();
+            }
+        });
+
+        return false;
+    }
+</script>

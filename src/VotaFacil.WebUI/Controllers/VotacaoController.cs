@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using VotaFacil.Apllication.DTO;
 using VotaFacil.Apllication.Facade;
+using VotaFacil.Domain.Interfaces;
 using VotaFacil.Infrastructure.Service;
 
 namespace VotaFacil.WebUI.Controllers
@@ -13,15 +14,17 @@ namespace VotaFacil.WebUI.Controllers
         private readonly IMapper _mapper;
         private readonly IAmazonS3 _s3Client;
         private readonly EleicaoFacade _eleicaoFacade;
-        private readonly JwtTokenValidator _jwtTokenValidator;
+        private readonly VotoFacade _votoFacade;
+        private readonly IJwtTokenValidator _jwtTokenValidator;
         private const string BucketName = "imagenscandidatos";
 
-        public VotacaoController(EleicaoFacade eleicaoFacade, IMapper mapper, IAmazonS3 s3Client, JwtTokenValidator jwtTokenValidator)
+        public VotacaoController(EleicaoFacade eleicaoFacade, IMapper mapper, IAmazonS3 s3Client, IJwtTokenValidator jwtTokenValidator, VotoFacade votoFacade)
         {
             _eleicaoFacade = eleicaoFacade;
             _mapper = mapper;
             _s3Client = s3Client;
             _jwtTokenValidator = jwtTokenValidator;
+            _votoFacade = votoFacade;
         }
 
         public IActionResult Index()
@@ -110,9 +113,15 @@ namespace VotaFacil.WebUI.Controllers
             }
 
             var eleicoesDTO = eleicoes
-                .Where(e => e.Candidatos != null && e.Candidatos.Any())
+                .Where(e => e.Candidatos != null && e.Candidatos.Any() && e.Inicio <= DateTime.Now && e.Fim >= DateTime.Now)
                 .Select(e => _mapper.Map<EleicaoDTO>(e))
                 .ToList();
+
+            if (!eleicoes.Any())
+            {
+                ViewBag.ErrorMessage = "Não há eleições disponíveis.";
+                return View("CadastrarEleicao", new List<EleicaoDTO>());
+            }
 
             return View("EscolherEleicao", eleicoesDTO);
         }
@@ -133,42 +142,71 @@ namespace VotaFacil.WebUI.Controllers
 
         #region REGISTO DE VOTOS
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> Votar(Guid candidatoId, Guid eleicaoId)
         {
-
             if (Request.Cookies.TryGetValue("AuthToken", out var token))
             {
                 var eleitorId = _jwtTokenValidator.ObterEleitorIdDoToken(token);
                 if (eleitorId == null)
                 {
-                    ViewBag.ErrorMessage = "Eleitor não encontrado.";
-                    return View("EscolhaCandidato");
+                    return Json(new { success = false, message = "Eleitor não encontrado.", canVote = false });
                 }
 
-                var eleicaoModel = await _eleicaoFacade.ObterVotacaoPorId(eleicaoId);
-                //eleicaoModel.Votos.Add(new VotoModel
-                //{
-                //    CandidatoId = candidatoId,
-                //    EleitorId = eleitorId.Value
-                //});
-                //var sucesso = await _eleicaoFacade.AtualizarEleicao(eleicaoId, candidatoId, eleitorId.Value);
-                //if (sucesso)
-                //{
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //else
-                //{
-                //    ViewBag.ErrorMessage = "Falha ao registrar voto.";
-                //    return View("EscolhaCandidato");
-                //}
+                var verificarVoto = await _votoFacade.VerificarVoto(eleicaoId, eleitorId.Value);
+                if (verificarVoto != null && verificarVoto.CandidatoId == candidatoId)
+                {
+                    var message = $"{verificarVoto.Eleitor.Nome} já votou nessa eleição. " +
+                                  $"Hash do voto {verificarVoto.HashAtual} " +
+                                  $"Eleição {verificarVoto.Votacao.Id}";
+                    return Json(new { success = false, message, canVote = false });
+                }
+
+                await _votoFacade.AdicionarVoto(eleitorId.Value, candidatoId, eleicaoId);
+
+                return Json(new { success = true, message = "Voto registrado com sucesso.", canVote = true });
             }
             else
             {
-                ViewBag.ErrorMessage = "Usuário não autenticado.";
-                return View("Login", "Login");
+                return Json(new { success = false, message = "Usuário não autenticado.", canVote = false });
             }
-            return View("Login", "Login");
         }
+        //[HttpPost]
+        //public async Task<IActionResult> Votar(Guid candidatoId, Guid eleicaoId)
+        //{
+
+        //    if (Request.Cookies.TryGetValue("AuthToken", out var token))
+        //    {
+        //        var eleitorId = _jwtTokenValidator.ObterEleitorIdDoToken(token);
+        //        if (eleitorId == null)
+        //        {
+        //            ViewBag.ErrorMessage = "Eleitor não encontrado.";
+        //            return View("EscolhaCandidato");
+        //        }
+
+        //        var verificarVoto = await _votoFacade.VerificarVoto(eleicaoId, eleitorId.Value);
+        //        if(verificarVoto == null || verificarVoto.CandidatoId == candidatoId)
+        //        {
+        //            ViewBag.ErrorMessage = $"{verificarVoto?.Eleitor.Nome} já votou nessa eleição. " +
+        //                                   $"Hash do voto {verificarVoto?.HashAtual} " +
+        //                                   $"Eleição {verificarVoto?.Votacao.Id}";
+
+        //            return PartialView("_ErrorPartial", ViewBag.ErrorMessage);
+        //            //return RedirectToAction("Index", "Home");
+        //        }
+        //        await _votoFacade.AdicionarVoto(eleitorId.Value, candidatoId, eleicaoId);
+
+        //        ViewBag.ErrorMessage = "Voto registrado com sucesso.";
+        //        return RedirectToAction("Index","Home");
+
+        //    }
+        //    else
+        //    {
+        //        ViewBag.ErrorMessage = "Usuário não autenticado.";
+        //        return RedirectToAction("Index", "Home");
+        //    }
+
+        //}
         #endregion REGISTO DE VOTOS
 
         private async Task<string> UploadImageToS3(IFormFile image)

@@ -22,7 +22,7 @@ namespace VotaFacil.Infrastructure.Service
         {
             _secretKey = secretKey;
             _revokedTokens = new Dictionary<string, DateTime>();
-            _tokenRevocationDuration = tokenRevocationDuration; ;
+            _tokenRevocationDuration = tokenRevocationDuration;
         }
 
 

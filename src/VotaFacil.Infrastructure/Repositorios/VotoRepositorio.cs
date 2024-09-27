@@ -30,10 +30,22 @@ namespace VotaFacil.Infrastructure.Repositorios
             }
         }
 
+        public async Task<VotoModel?> VerificarVoto(Guid eleicaoId, Guid eleitorId)
+        {
+            return await _contexto.Votos
+                .Include(v => v.Candidato)
+                .Include(v => v.Eleitor)
+                .Include(v => v.Votacao)
+                .FirstOrDefaultAsync(v => v.VotacaoId == eleicaoId && v.EleitorId == eleitorId);
+        }
+
         public async Task<IEnumerable<VotoModel>> ObterVotosPorEleicao(Guid eleicaoId)
         {
             return await _contexto.Votos
                 .Where(v => v.VotacaoId == eleicaoId)
+                .Include(v => v.Candidato)
+                .Include(v => v.Eleitor)
+                .Include(v => v.Votacao)
                 .ToListAsync();
         }
     }

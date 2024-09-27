@@ -19,6 +19,7 @@ namespace VotaFacil.Domain.Entidades
         [Column("endereco_ethereum"), MaxLength(100)] public string? EnderecoEthereum { get; set; }
 
         public LoginModel Login { get; set; }
+        public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>();
 
         public EleitorModel() { }
 

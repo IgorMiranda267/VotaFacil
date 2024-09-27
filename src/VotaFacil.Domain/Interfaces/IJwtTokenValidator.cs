@@ -8,5 +8,6 @@ namespace VotaFacil.Domain.Interfaces
         string GerarToken(LoginModel user);
         bool ValidarToken(string token);
         void InvalidarToken(string token);
+        Guid? ObterEleitorIdDoToken(string token);
     }
 }

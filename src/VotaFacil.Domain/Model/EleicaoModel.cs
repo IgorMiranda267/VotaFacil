@@ -16,12 +16,10 @@ namespace VotaFacil.Domain.Entidades
         [Required, Column("inicio")] public DateTime Inicio { get; private set; }
 
         [Required, Column("fim")] public DateTime Fim { get; private set; }
+   
+        public ICollection<CandidatoModel> Candidatos { get; set; } = new List<CandidatoModel>(); // Relação com CandidatoModel
 
-        // Relação com CandidatoModel
-        public ICollection<CandidatoModel> Candidatos { get; set; } = new List<CandidatoModel>();
-
-        // Relação com VotoModel
-        public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>();
+        public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>(); // Relação com VotoModel
 
         private readonly List<Guid> _votosRegistrados = new List<Guid>();
 

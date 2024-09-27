@@ -6,5 +6,6 @@ namespace VotaFacil.Domain.Interfaces
     {
         Task<bool> AdicionarVoto(VotoModel voto);
         Task<IEnumerable<VotoModel>> ObterVotosPorEleicao(Guid eleicaoId);
+        Task<VotoModel?> VerificarVoto(Guid eleicaoId, Guid eleitorId);
     }
 }

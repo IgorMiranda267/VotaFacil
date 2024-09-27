@@ -7,7 +7,9 @@ namespace VotaFacil.Infra.Data.Contexto
     public class VotacaoContext : DbContext
     {
         public VotacaoContext(DbContextOptions<VotacaoContext> options) : base(options)
-        { }
+        {
+            this.ChangeTracker.LazyLoadingEnabled = true;
+        }
 
         public DbSet<EleitorModel> Eleitores { get; set; }
         public DbSet<EleicaoModel> Votacoes { get; set; }

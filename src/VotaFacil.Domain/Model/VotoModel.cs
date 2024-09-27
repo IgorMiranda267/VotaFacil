@@ -13,11 +13,9 @@ namespace VotaFacil.Domain.Entidades
 
         [Column("eleitor_id"), Required] public Guid EleitorId { get; private set; }
 
-        [Column("opcao_voto_id"), Required] public Guid OpcaoVotoId { get; private set; }
+        [Column("votacao_id"), Required] public Guid VotacaoId { get; private set; }
 
-        [Column("votacao_id"), Required] public Guid VotacaoId { get; set; }
-
-        [Column("candidato_id"), Required] public Guid CandidatoId { get; set; }
+        [Column("candidato_id"), Required] public Guid CandidatoId { get; private set; }
 
         [Column("data_hora_voto"), Required] public DateTime DataHoraVoto { get; private set; }
 
@@ -27,12 +25,14 @@ namespace VotaFacil.Domain.Entidades
         public EleicaoModel Votacao { get; set; }
         public EleitorModel Eleitor { get; set; }
         public CandidatoModel Candidato { get; set; }
+        public VotoModel() { }
 
-        public VotoModel(Guid eleitorId, Guid opcaoVotoId, string hashAnterior)
+        public VotoModel(Guid eleitorId, Guid candidatoId, Guid votacaoId, string hashAnterior)
         {
             Id = Guid.NewGuid();
             EleitorId = eleitorId;
-            OpcaoVotoId = opcaoVotoId;
+            CandidatoId = candidatoId;
+            VotacaoId = votacaoId;
             DataHoraVoto = DateTime.UtcNow;
             HashAnterior = hashAnterior;
             HashAtual = GerarHash();
@@ -42,7 +42,7 @@ namespace VotaFacil.Domain.Entidades
         {
             using (SHA256 sha256 = SHA256.Create())
             {
-                string rawData = $"{Id}{EleitorId}{OpcaoVotoId}{DataHoraVoto}{HashAnterior}";
+                string rawData = $"{Id}{EleitorId}{CandidatoId}{DataHoraVoto}{HashAnterior}";
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(rawData));
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < bytes.Length; i++)

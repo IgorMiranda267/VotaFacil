@@ -41,6 +41,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
             services.AddScoped<IEleitorRepositorio, EleitorRepositorio>();
             services.AddScoped<IEleicaoRepositorio, EleicaoRepositorio>();
             services.AddScoped<ILoginRepositorio, LoginRepositorio>();
+            services.AddScoped<IVotoRepositorio, VotoRepositorio>();
         }
 
         private static void Facade(IServiceCollection services)
@@ -48,7 +49,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
             services.AddScoped<LoginFacade>();
             services.AddScoped<EleitorFacade>();
             services.AddScoped<EleicaoFacade>();
-            services.AddScoped<EleicaoFacade>();
+            services.AddScoped<VotoFacade>();
         }
 
         private static void AutoMapper(IServiceCollection services)
@@ -60,7 +61,6 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         {
             var secretKey = Environment.GetEnvironmentVariable("SECRET_KEY_JWT");
             var tokenRevocationDuration = TimeSpan.FromHours(1);
-            services.AddScoped<IJwtTokenValidator, JwtTokenValidator>();
             services.AddSingleton<IJwtTokenValidator>(provider => new JwtTokenValidator(secretKey, tokenRevocationDuration));
         }
 
