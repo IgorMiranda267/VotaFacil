@@ -1,7 +1,8 @@
 ﻿@{
     var path = Context.Request.Path.ToString();
     var isLoginPage = string.Equals(path, "/", StringComparison.OrdinalIgnoreCase) ||
-                      string.Equals(path, "/Login/Logout", StringComparison.OrdinalIgnoreCase);
+                      string.Equals(path, "/Login/Logout", StringComparison.OrdinalIgnoreCase) ||
+                      string.Equals(path, "/Eleitor", StringComparison.OrdinalIgnoreCase);
 }
 
 
@@ -33,17 +34,14 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
                             </li> 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
                             </li>
-                            <li class="nav-item">
+                            @* <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CadastarEleitor">Cadastrar Eleitor</a>
-                            </li>
+                            </li> *@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CadastrarCandidato">Cadastrar Candidato</a>
                             </li>

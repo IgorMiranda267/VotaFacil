@@ -142,7 +142,6 @@ namespace VotaFacil.WebUI.Controllers
 
         #region REGISTO DE VOTOS
         [HttpPost]
-        [HttpPost]
         public async Task<IActionResult> Votar(Guid candidatoId, Guid eleicaoId)
         {
             if (Request.Cookies.TryGetValue("AuthToken", out var token))
@@ -171,42 +170,6 @@ namespace VotaFacil.WebUI.Controllers
                 return Json(new { success = false, message = "Usuário não autenticado.", canVote = false });
             }
         }
-        //[HttpPost]
-        //public async Task<IActionResult> Votar(Guid candidatoId, Guid eleicaoId)
-        //{
-
-        //    if (Request.Cookies.TryGetValue("AuthToken", out var token))
-        //    {
-        //        var eleitorId = _jwtTokenValidator.ObterEleitorIdDoToken(token);
-        //        if (eleitorId == null)
-        //        {
-        //            ViewBag.ErrorMessage = "Eleitor não encontrado.";
-        //            return View("EscolhaCandidato");
-        //        }
-
-        //        var verificarVoto = await _votoFacade.VerificarVoto(eleicaoId, eleitorId.Value);
-        //        if(verificarVoto == null || verificarVoto.CandidatoId == candidatoId)
-        //        {
-        //            ViewBag.ErrorMessage = $"{verificarVoto?.Eleitor.Nome} já votou nessa eleição. " +
-        //                                   $"Hash do voto {verificarVoto?.HashAtual} " +
-        //                                   $"Eleição {verificarVoto?.Votacao.Id}";
-
-        //            return PartialView("_ErrorPartial", ViewBag.ErrorMessage);
-        //            //return RedirectToAction("Index", "Home");
-        //        }
-        //        await _votoFacade.AdicionarVoto(eleitorId.Value, candidatoId, eleicaoId);
-
-        //        ViewBag.ErrorMessage = "Voto registrado com sucesso.";
-        //        return RedirectToAction("Index","Home");
-
-        //    }
-        //    else
-        //    {
-        //        ViewBag.ErrorMessage = "Usuário não autenticado.";
-        //        return RedirectToAction("Index", "Home");
-        //    }
-
-        //}
         #endregion REGISTO DE VOTOS
 
         private async Task<string> UploadImageToS3(IFormFile image)
