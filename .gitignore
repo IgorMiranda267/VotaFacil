@@ -32,3 +32,6 @@ project.fragment.lock.json
 
 # Arquivos de publicação
 publish/
+
+# LaunchSettings
+**/launchSettings.json
