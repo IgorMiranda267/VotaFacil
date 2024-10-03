@@ -8,9 +8,9 @@ namespace VotaFacil.Infrastructure.Repositorios
     public class LoginRepositorio : ILoginRepositorio
     {
         private readonly VotacaoContext _contexto;
-        private readonly IJwtTokenValidator _jwtTokenValidator;
+        private readonly IJwtTokenService _jwtTokenValidator;
 
-        public LoginRepositorio(VotacaoContext contexto, IJwtTokenValidator jwtTokenValidator)
+        public LoginRepositorio(VotacaoContext contexto, IJwtTokenService jwtTokenValidator)
         {
             _contexto = contexto;
             _jwtTokenValidator = jwtTokenValidator;

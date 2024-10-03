@@ -15,10 +15,10 @@ namespace VotaFacil.WebUI.Controllers
         private readonly IAmazonS3 _s3Client;
         private readonly EleicaoFacade _eleicaoFacade;
         private readonly VotoFacade _votoFacade;
-        private readonly IJwtTokenValidator _jwtTokenValidator;
+        private readonly IJwtTokenService _jwtTokenValidator;
         private const string BucketName = "imagenscandidatos";
 
-        public VotacaoController(EleicaoFacade eleicaoFacade, IMapper mapper, IAmazonS3 s3Client, IJwtTokenValidator jwtTokenValidator, VotoFacade votoFacade)
+        public VotacaoController(EleicaoFacade eleicaoFacade, IMapper mapper, IAmazonS3 s3Client, IJwtTokenService jwtTokenValidator, VotoFacade votoFacade)
         {
             _eleicaoFacade = eleicaoFacade;
             _mapper = mapper;

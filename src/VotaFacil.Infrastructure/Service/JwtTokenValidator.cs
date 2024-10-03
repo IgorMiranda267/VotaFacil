@@ -9,7 +9,7 @@ using VotaFacil.Domain.Interfaces;
 
 namespace VotaFacil.Infrastructure.Service
 {
-    public class JwtTokenValidator : IJwtTokenValidator
+    public class JwtTokenValidator : IJwtTokenService
     {
         private readonly string _secretKey;
         private readonly Dictionary<string, DateTime> _revokedTokens;

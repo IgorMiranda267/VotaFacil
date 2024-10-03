@@ -6,6 +6,7 @@ namespace VotaFacil.Apllication.Facade
     public class VotoFacade
     {
         private readonly IVotoRepositorio _votoRepositorio;
+        private readonly IEthereumService _ethereumService;
 
         public VotoFacade(IVotoRepositorio votoRepositorio)
         {
@@ -14,7 +15,12 @@ namespace VotaFacil.Apllication.Facade
 
         public async Task<bool> AdicionarVoto(Guid eleitorId, Guid candidatoId, Guid eleicaoId) ////Guid eleitorId, Guid opcaoVotoId, string hashAnterior
         {
-            var voto = new VotoModel(eleitorId, candidatoId, eleicaoId, "HASH_ANTERIOR");
+            var numeroBloco = await _ethereumService.GetLatestBlockAsync();
+            var hashAnterior = await _ethereumService.GetLatestBlockHashAsync();
+
+            var voto = new VotoModel(eleitorId, candidatoId, eleicaoId, hashAnterior, numeroBloco);
+            var txHash = await _ethereumService.EnviarVotoAsync(eleitorId, candidatoId, hashAnterior, numeroBloco);
+
             return await _votoRepositorio.AdicionarVoto(voto);
         }
 

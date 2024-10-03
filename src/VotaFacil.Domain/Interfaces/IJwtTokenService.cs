@@ -3,7 +3,7 @@ using VotaFacil.Domain.Entidades;
 
 namespace VotaFacil.Domain.Interfaces
 {
-    public interface IJwtTokenValidator
+    public interface IJwtTokenService
     {
         string GerarToken(LoginModel user);
         bool ValidarToken(string token);
