@@ -228,7 +228,7 @@ namespace VotaFacil.Infrastructure.Service
                     ""stateMutability"": ""view"",
                     ""type"": ""function""
                 }
-            ]";//0x4f7a23672D79DFecCe173A152F1D2fcFc27ee3c0
+            ]";
             var gas = new HexBigInteger(120000); // Gas limit
             var value = new HexBigInteger(0); // Value
             var cancellationToken = new CancellationTokenSource().Token;
