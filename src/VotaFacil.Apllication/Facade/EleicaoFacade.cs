@@ -53,14 +53,18 @@ namespace VotaFacil.Apllication.Facade
         #region ELEIÇÂO
         public async Task CadastrarEleicao(EleicaoDTO eleicao)
         {
+            var contrato = await _ethereumService.CriarContratoEleicaoAsync(eleicao.Id, eleicao.Nome);
+
             var eleicaoModel = new EleicaoModel(
                 eleicao.Nome,
                 eleicao.Descricao,
                 DateTime.SpecifyKind(eleicao.Inicio, DateTimeKind.Utc),
-                DateTime.SpecifyKind(eleicao.Fim, DateTimeKind.Utc)
+                DateTime.SpecifyKind(eleicao.Fim, DateTimeKind.Utc),
+                contrato.ContractAddress,
+                contrato.TransactionHash,
+                contrato.BlockNumber,
+                contrato.GasUsed
             );
-
-            var transactionHash = await _ethereumService.CriarContratoEleicaoAsync(eleicaoModel.Id, eleicaoModel.Nome);
 
             await _eleicaoRepositorio.AdicionarEleicao(eleicaoModel);
         }

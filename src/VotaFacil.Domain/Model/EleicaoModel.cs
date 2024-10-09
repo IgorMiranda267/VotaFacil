@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Nethereum.Hex.HexTypes;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VotaFacil.Domain.Model;
 
@@ -16,16 +17,21 @@ namespace VotaFacil.Domain.Entidades
         [Required, Column("inicio")] public DateTime Inicio { get; private set; }
 
         [Required, Column("fim")] public DateTime Fim { get; private set; }
-   
+        [Column("contract_address"), MaxLength(42)] public string ContractAddress { get; set; }
+        [Column("transaction_hash"), MaxLength(66)] public string TransactionHash { get; set; }
+        [Column("block_number")] public HexBigInteger BlockNumber { get; set; }
+        [Column("gas_used")] public HexBigInteger GasUsed { get; set; }
+
         public ICollection<CandidatoModel> Candidatos { get; set; } = new List<CandidatoModel>(); // Relação com CandidatoModel
 
         public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>(); // Relação com VotoModel
 
         private readonly List<Guid> _votosRegistrados = new List<Guid>();
 
+
         public EleicaoModel() { }
 
-        public EleicaoModel(string nome, string descricao, DateTime inicio, DateTime fim)
+        public EleicaoModel(string nome, string descricao, DateTime inicio, DateTime fim, string contractAddress, string transactionHash, HexBigInteger blockNumber, HexBigInteger gasUsed)
         {
             if (inicio >= fim)
                 throw new ArgumentException("A data de início deve ser anterior à data de fim.");
@@ -35,6 +41,10 @@ namespace VotaFacil.Domain.Entidades
             Descricao = descricao;
             Inicio = DateTime.SpecifyKind(inicio, DateTimeKind.Utc);
             Fim = DateTime.SpecifyKind(fim, DateTimeKind.Utc);
+            ContractAddress = contractAddress;
+            TransactionHash = transactionHash;
+            BlockNumber = blockNumber;
+            GasUsed = gasUsed;
         }
 
         public EleicaoModel(EleitorModel votante, VotoModel opcaoVoto)
