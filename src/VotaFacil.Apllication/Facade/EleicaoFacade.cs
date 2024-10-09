@@ -8,16 +8,18 @@ namespace VotaFacil.Apllication.Facade
 {
     public class EleicaoFacade
     {
-        private readonly IEleicaoRepositorio _eleicaoRepositorio;
         private IMapper _mapper;
+        private readonly IEthereumService _ethereumService;
+        private readonly IEleicaoRepositorio _eleicaoRepositorio;
 
-        public EleicaoFacade(IEleicaoRepositorio eleicaoRepositorio, IMapper mapper)
+        public EleicaoFacade(IEleicaoRepositorio eleicaoRepositorio, IMapper mapper, IEthereumService ethereumService)
         {
-            _eleicaoRepositorio = eleicaoRepositorio;
             _mapper = mapper;
+            _ethereumService = ethereumService;
+            _eleicaoRepositorio = eleicaoRepositorio;
         }
 
-        
+        #region CANDIDATO
         public async Task<bool> AdicionarCandidato(CandidatoDTO candidato, EleicaoModel eleicao)
         {
             var cad = new CandidatoModel(candidato.Nome, candidato.Descricao, candidato?.FotoPath);
@@ -35,7 +37,6 @@ namespace VotaFacil.Apllication.Facade
             return await _eleicaoRepositorio.BuscarCandidatoPorId(id);
         }
 
-
         public async Task DeletarCandidato(Guid idCandidato)
         {
 
@@ -47,7 +48,9 @@ namespace VotaFacil.Apllication.Facade
           
             return  _mapper.Map<List<CandidatoDTO>>(candidatosList);
         }
+        #endregion CANDIDATO
 
+        #region ELEIÇÂO
         public async Task CadastrarEleicao(EleicaoDTO eleicao)
         {
             var eleicaoModel = new EleicaoModel(
@@ -56,6 +59,8 @@ namespace VotaFacil.Apllication.Facade
                 DateTime.SpecifyKind(eleicao.Inicio, DateTimeKind.Utc),
                 DateTime.SpecifyKind(eleicao.Fim, DateTimeKind.Utc)
             );
+
+            var transactionHash = await _ethereumService.CriarContratoEleicaoAsync(eleicaoModel.Id, eleicaoModel.Nome);
 
             await _eleicaoRepositorio.AdicionarEleicao(eleicaoModel);
         }
@@ -79,5 +84,6 @@ namespace VotaFacil.Apllication.Facade
         {
             await _eleicaoRepositorio.AtualizarEleicao(votacao);
         }
+        #endregion ELEIÇÂO
     }
 }

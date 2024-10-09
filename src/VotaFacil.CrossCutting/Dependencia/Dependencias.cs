@@ -21,6 +21,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         public static IServiceCollection AddDependencyResolver(this IServiceCollection services, IConfiguration configuration)
         {
             Facade(services);
+            Infura(services);
             Service(services);
             AmazonS3(services, configuration);
             AutoMapper(services);
@@ -42,7 +43,6 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
             services.AddScoped<IEleicaoRepositorio, EleicaoRepositorio>();
             services.AddScoped<ILoginRepositorio, LoginRepositorio>();
             services.AddScoped<IVotoRepositorio, VotoRepositorio>();
-            services.AddScoped<IEthereumService, EthereumService>();
         }
 
         private static void Facade(IServiceCollection services)
@@ -68,12 +68,13 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
         private static void Infura(IServiceCollection services)
         {
             var id = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_ID_ACCOUNT") ?? throw new ArgumentException("INFURA_ETHEREUM_ID_ACCOUNT não pode ser nulo.");
+            var url = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS") ?? throw new ArgumentException("INFURA_ETHEREUM_CONTRACT_ADDRESS não pode ser nulo.");
             var carteira = Environment.GetEnvironmentVariable("META_MASK_WALLET_ADDRESS") ?? throw new ArgumentException("META_MASK_WALLET_ADDRESS não pode ser nulo.");
-            var chavePrivada = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_PRIVATE_KEY") ?? throw new ArgumentException("INFURA_ETHEREUM_PRIVATE_KEY não pode ser nulo.");
+            var chavePrivada = Environment.GetEnvironmentVariable("META_MASK_ETHEREUM_PRIVATE_KEY") ?? throw new ArgumentException("INFURA_ETHEREUM_PRIVATE_KEY não pode ser nulo.");
             var contratoInteligente = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS") ?? throw new ArgumentException("INFURA_ETHEREUM_CONTRACT_ADDRESS não pode ser nulo.");
 
-            services.AddScoped<EthereumService>(provider => new EthereumService(
-                $"https://mainnet.infura.io/v3/{id}",
+            services.AddScoped<IEthereumService>(provider => new EthereumService(
+                $"{url}{id}",
                 contratoInteligente,
                 carteira,
                 chavePrivada

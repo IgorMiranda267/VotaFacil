@@ -22,6 +22,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Nethereum.Contracts" Version="4.21.4" />
     <PackageReference Include="Nethereum.RPC" Version="4.21.4" />
+    <PackageReference Include="Nethereum.Signer" Version="4.21.4" />
     <PackageReference Include="Nethereum.Util" Version="4.21.4" />
     <PackageReference Include="Nethereum.Web3" Version="4.21.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
