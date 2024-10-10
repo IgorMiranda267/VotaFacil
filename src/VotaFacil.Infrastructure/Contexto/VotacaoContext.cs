@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nethereum.Hex.HexTypes;
 using VotaFacil.Domain.Entidades;
 using VotaFacil.Domain.Model;
 
@@ -51,7 +52,7 @@ namespace VotaFacil.Infra.Data.Contexto
                     }
                 );
 
-            /// Relação um-para-muitos entre CandidatoModel e VotoModel
+            // Relação um-para-muitos entre CandidatoModel e VotoModel
             builder.Entity<VotoModel>()
                 .HasOne(v => v.Candidato)
                 .WithMany(c => c.Votos)
@@ -64,6 +65,9 @@ namespace VotaFacil.Infra.Data.Contexto
                 .WithMany(e => e.Votos)           // Uma eleição tem muitos votos
                 .HasForeignKey(v => v.VotacaoId)  // Chave estrangeira no Voto
                 .OnDelete(DeleteBehavior.Cascade); // Delete em cascata ao remover uma eleição
+
+            // Configurar HexBigInteger como uma entidade sem chave
+            builder.Entity<HexBigInteger>().HasNoKey();
         }
     }
 }

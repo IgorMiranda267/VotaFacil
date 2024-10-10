@@ -5,6 +5,7 @@ using Amazon.S3;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Linq;
 using VotaFacil.Apllication.Controller;
 using VotaFacil.Apllication.Facade;
 using VotaFacil.Apllication.Mapper;

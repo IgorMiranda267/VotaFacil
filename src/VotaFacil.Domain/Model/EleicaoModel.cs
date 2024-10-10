@@ -19,8 +19,24 @@ namespace VotaFacil.Domain.Entidades
         [Required, Column("fim")] public DateTime Fim { get; private set; }
         [Column("contract_address"), MaxLength(42)] public string ContractAddress { get; set; }
         [Column("transaction_hash"), MaxLength(66)] public string TransactionHash { get; set; }
-        [Column("block_number")] public HexBigInteger BlockNumber { get; set; }
-        [Column("gas_used")] public HexBigInteger GasUsed { get; set; }
+
+        // Propriedades para armazenar os valores de BlockNumber e GasUsed como strings
+        [Column("block_number")] public string BlockNumberString { get; set; }
+        [Column("gas_used")] public string GasUsedString { get; set; }
+
+        [NotMapped]
+        public HexBigInteger BlockNumber
+        {
+            get => new HexBigInteger(BlockNumberString);
+            set => BlockNumberString = value.Value.ToString();
+        }
+
+        [NotMapped]
+        public HexBigInteger GasUsed
+        {
+            get => new HexBigInteger(GasUsedString);
+            set => GasUsedString = value.Value.ToString();
+        }
 
         public ICollection<CandidatoModel> Candidatos { get; set; } = new List<CandidatoModel>(); // Relação com CandidatoModel
 
@@ -28,8 +44,15 @@ namespace VotaFacil.Domain.Entidades
 
         private readonly List<Guid> _votosRegistrados = new List<Guid>();
 
-
-        public EleicaoModel() { }
+        public EleicaoModel()
+        {
+            Nome = string.Empty;
+            Descricao = string.Empty;
+            ContractAddress = string.Empty;
+            TransactionHash = string.Empty;
+            BlockNumberString = "0";
+            GasUsedString = "0";
+        }
 
         public EleicaoModel(string nome, string descricao, DateTime inicio, DateTime fim, string contractAddress, string transactionHash, HexBigInteger blockNumber, HexBigInteger gasUsed)
         {

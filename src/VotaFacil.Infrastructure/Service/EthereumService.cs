@@ -89,17 +89,36 @@ namespace VotaFacil.Infrastructure.Service
         }
 
         public async Task<string> EnviarVotoAsync(Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco)
-
         {
-            var contrato = _web3.Eth.GetContract(ABI, _contractAddress);
-            var funcaoVotar = contrato.GetFunction("votar");
+            var eleitorIdBytes = eleitorId.ToByteArray();
+            var opcaoVotoIdBytes = opcaoVotoId.ToByteArray();
 
-            var gas = new HexBigInteger(50000);
-            var valor = new HexBigInteger(0);
+            var votarFunction = new VotarFunctionDTO
+            {
+                EleitorId = eleitorIdBytes,
+                OpcaoVotoId = opcaoVotoIdBytes,
+                HashAnterior = hashAnterior,
+                NumeroBloco = numeroBloco
+            };
 
-            var txHash = await funcaoVotar.SendTransactionAsync(_accountAddress, gas, valor, eleitorId, opcaoVotoId, hashAnterior, numeroBloco);
-            return txHash;
+            var transactionReceipt = await _web3.Eth.GetContractTransactionHandler<VotarFunctionDTO>()
+                .SendRequestAndWaitForReceiptAsync(_contractAddress, votarFunction);
+
+            return transactionReceipt.TransactionHash;
         }
+
+        //public async Task<string> EnviarVotoAsyncs(Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco)
+
+        //{
+        //    var contrato = _web3.Eth.GetContract(ABI, _contractAddress);
+        //    var funcaoVotar = contrato.GetFunction("votar");
+
+        //    var gas = new HexBigInteger(50000);
+        //    var valor = new HexBigInteger(0);
+
+        //    var txHash = await funcaoVotar.SendTransactionAsync(_accountAddress, gas, valor, eleitorId, opcaoVotoId, hashAnterior, numeroBloco);
+        //    return txHash;
+        //}
         #endregion ELEIÇÂO
 
 
@@ -259,6 +278,7 @@ namespace VotaFacil.Infrastructure.Service
             var responseString = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Conexão com Infura bem-sucedida: {responseString}");
         }
+
         public async Task<decimal> GetAccountBalanceAsync(string accountAddress)
         {
             var balance = await _web3.Eth.GetBalance.SendRequestAsync(accountAddress);

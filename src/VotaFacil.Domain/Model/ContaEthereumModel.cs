@@ -29,8 +29,8 @@ namespace VotaFacil.Domain.Model
         public ContaEthereumModel(string privateKey)
         {
             var account = new Account(privateKey);
-            var id = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_ID_ACCOUNT");
-            var url = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS");
+            var id = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_ID_ACCOUNT") ?? throw new ArgumentException("INFURA_ETHEREUM_ID_ACCOUNT não pode ser nulo."); ;
+            var url = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS") ?? throw new ArgumentException("INFURA_ETHEREUM_CONTRACT_ADDRESS não pode ser nulo."); ;
 
             PrivateKey = privateKey;
             Address = new EthECKey(privateKey).GetPublicAddress();
