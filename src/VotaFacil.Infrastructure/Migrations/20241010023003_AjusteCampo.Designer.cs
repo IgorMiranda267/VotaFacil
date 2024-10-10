@@ -3,6 +3,7 @@ using System;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VotaFacil.Infra.Data.Contexto;
@@ -12,9 +13,11 @@ using VotaFacil.Infra.Data.Contexto;
 namespace VotaFacil.Infrastructure.Migrations
 {
     [DbContext(typeof(VotacaoContext))]
-    partial class VotacaoContextModelSnapshot : ModelSnapshot
+    [Migration("20241010023003_AjusteCampo")]
+    partial class AjusteCampo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

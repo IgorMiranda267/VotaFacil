@@ -14,8 +14,8 @@ namespace VotaFacil.Domain.Entidades
         [Column("votacao_id"), Required] public Guid VotacaoId { get; private set; }
         [Column("candidato_id"), Required] public Guid CandidatoId { get; private set; }
         [Column("data_hora_voto"), Required] public DateTime DataHoraVoto { get; private set; }
-        [Column("hash_anterior"), MaxLength(64)] public string HashAnterior { get; private set; }
-        [Column("hash_atual"), MaxLength(64)] public string HashAtual { get; private set; }
+        [Column("hash_anterior"), MaxLength(200)] public string HashAnterior { get; private set; }
+        [Column("hash_atual"), MaxLength(200)] public string HashAtual { get; private set; }
         [Column("numero_bloco"), Required] public string NumeroBloco { get; private set; }
 
         public EleicaoModel Votacao { get; set; }

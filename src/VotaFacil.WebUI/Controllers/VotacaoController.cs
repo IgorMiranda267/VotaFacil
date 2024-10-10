@@ -144,31 +144,40 @@ namespace VotaFacil.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Votar(Guid candidatoId, Guid eleicaoId)
         {
-            if (Request.Cookies.TryGetValue("AuthToken", out var token))
+            try
             {
-                var eleitorId = _jwtTokenValidator.ObterEleitorIdDoToken(token);
-                if (eleitorId == null)
+                if (Request.Cookies.TryGetValue("AuthToken", out var token))
                 {
-                    return Json(new { success = false, message = "Eleitor não encontrado.", canVote = false });
-                }
+                    var eleitorId = _jwtTokenValidator.ObterEleitorIdDoToken(token);
+                    if (eleitorId == null)
+                    {
+                        return Json(new { success = false, message = "Eleitor não encontrado.", canVote = false });
+                    }
 
-                var verificarVoto = await _votoFacade.VerificarVoto(eleicaoId, eleitorId.Value);
-                if (verificarVoto != null && verificarVoto.CandidatoId == candidatoId)
+                    var verificarVoto = await _votoFacade.VerificarVoto(eleicaoId, eleitorId.Value);
+                    if (verificarVoto != null && verificarVoto.CandidatoId == candidatoId)
+                    {
+                        var message = $"{verificarVoto.Eleitor.Nome} já votou nessa eleição. " +
+                                      $"Hash do voto {verificarVoto.HashAtual} " +
+                                      $"Eleição {verificarVoto.Votacao.Id}";
+                        return Json(new { success = false, message, canVote = false });
+                    }
+
+                    await _votoFacade.AdicionarVoto(eleitorId.Value, candidatoId, eleicaoId);
+
+                    return Json(new { success = true, message = "Voto registrado com sucesso.", canVote = true });
+                }
+                else
                 {
-                    var message = $"{verificarVoto.Eleitor.Nome} já votou nessa eleição. " +
-                                  $"Hash do voto {verificarVoto.HashAtual} " +
-                                  $"Eleição {verificarVoto.Votacao.Id}";
-                    return Json(new { success = false, message, canVote = false });
+                    return Json(new { success = false, message = "Usuário não autenticado.", canVote = false });
                 }
-
-                await _votoFacade.AdicionarVoto(eleitorId.Value, candidatoId, eleicaoId);
-
-                return Json(new { success = true, message = "Voto registrado com sucesso.", canVote = true });
             }
-            else
+            catch (InvalidOperationException ex)
             {
-                return Json(new { success = false, message = "Usuário não autenticado.", canVote = false });
+                var message = $"já votou nessa eleição.";
+                return Json(new { success = false, message, canVote = false });
             }
+            
         }
         #endregion REGISTO DE VOTOS
 

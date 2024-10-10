@@ -3,6 +3,7 @@ using Nethereum.ABI.FunctionEncoding.Attributes;
 
 namespace VotaFacil.Infrastructure.Service.SmartContract.DTO
 {
+    [Function("votar", "bool")] // Adicione o nome da função e o tipo de retorno esperado
     public class VotarFunctionDTO : FunctionMessage
     {
         [Parameter("bytes32", "eleitorId", 1)]

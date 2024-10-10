@@ -88,37 +88,43 @@ namespace VotaFacil.Infrastructure.Service
             return resultado;
         }
 
-        public async Task<string> EnviarVotoAsync(Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco)
+        public async Task<string> EnviarVotoAsync(string enderecoContrato, Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco)
         {
-            var eleitorIdBytes = eleitorId.ToByteArray();
-            var opcaoVotoIdBytes = opcaoVotoId.ToByteArray();
-
-            var votarFunction = new VotarFunctionDTO
+            try
             {
-                EleitorId = eleitorIdBytes,
-                OpcaoVotoId = opcaoVotoIdBytes,
-                HashAnterior = hashAnterior,
-                NumeroBloco = numeroBloco
-            };
+                var eleitorIdBytes = eleitorId.ToByteArray();
+                var opcaoVotoIdBytes = opcaoVotoId.ToByteArray();
 
-            var transactionReceipt = await _web3.Eth.GetContractTransactionHandler<VotarFunctionDTO>()
-                .SendRequestAndWaitForReceiptAsync(_contractAddress, votarFunction);
+                var votarFunction = new VotarFunctionDTO
+                {
+                    EleitorId = eleitorIdBytes,
+                    OpcaoVotoId = opcaoVotoIdBytes,
+                    HashAnterior = hashAnterior,
+                    NumeroBloco = numeroBloco
+                };
 
-            return transactionReceipt.TransactionHash;
+                var transactionReceipt = await _web3.Eth.GetContractTransactionHandler<VotarFunctionDTO>()
+                    .SendRequestAndWaitForReceiptAsync("0x1bd6a8a2db0033009fcb07db8420530c1edd6a89", votarFunction);
+
+                return transactionReceipt.TransactionHash;
+            }
+            catch (Exception ex) { throw new InvalidOperationException( ex.Message); }
+            //var eleitorIdBytes = eleitorId.ToByteArray();
+            //var opcaoVotoIdBytes = opcaoVotoId.ToByteArray();
+
+            //var votarFunction = new VotarFunctionDTO
+            //{
+            //    EleitorId = eleitorIdBytes,
+            //    OpcaoVotoId = opcaoVotoIdBytes,
+            //    HashAnterior = hashAnterior,
+            //    NumeroBloco = numeroBloco
+            //};
+
+            //var transactionReceipt = await _web3.Eth.GetContractTransactionHandler<VotarFunctionDTO>()
+            //    .SendRequestAndWaitForReceiptAsync("0x1bd6a8a2db0033009fcb07db8420530c1edd6a89", votarFunction);
+
+            //return transactionReceipt.TransactionHash;
         }
-
-        //public async Task<string> EnviarVotoAsyncs(Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco)
-
-        //{
-        //    var contrato = _web3.Eth.GetContract(ABI, _contractAddress);
-        //    var funcaoVotar = contrato.GetFunction("votar");
-
-        //    var gas = new HexBigInteger(50000);
-        //    var valor = new HexBigInteger(0);
-
-        //    var txHash = await funcaoVotar.SendTransactionAsync(_accountAddress, gas, valor, eleitorId, opcaoVotoId, hashAnterior, numeroBloco);
-        //    return txHash;
-        //}
         #endregion ELEIÇÂO
 
 

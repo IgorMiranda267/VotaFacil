@@ -8,7 +8,7 @@ namespace VotaFacil.Domain.Interfaces
         Task<string> GetLatestBlockHashAsync();
         Task<string> ConsultarVotoAsync(Guid eleitorId);
         Task<TransactionReceipt> CriarContratoEleicaoAsync(Guid eleicaoId, string nomeEleicao);
-        Task<string> EnviarVotoAsync(Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco);
+        Task<string> EnviarVotoAsync(string enderecoContrato, Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco);
 
     }
 }
