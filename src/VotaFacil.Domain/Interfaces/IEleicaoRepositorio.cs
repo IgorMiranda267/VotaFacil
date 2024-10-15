@@ -5,14 +5,15 @@ namespace VotaFacil.Domain.Interfaces
 {
     public interface IEleicaoRepositorio
     {
-        Task<EleicaoModel?> ObterVotacaoPorId(Guid? id);
-        Task<IEnumerable<EleicaoModel>> ObterTodasEleicoes();
-        Task AdicionarEleicao(EleicaoModel votacao);
-        Task AtualizarEleicao(EleicaoModel votacao);
-        Task<bool> AdicionarCandidato(CandidatoModel candidato, EleicaoModel eleicao);
         Task<bool> AtualizarCandidato(CandidatoModel candidato);
+        Task<bool> AdicionarCandidato(CandidatoModel candidato, EleicaoModel eleicao);
         Task DeletarCandidato(Guid idCandidato);
+        Task AtualizarEleicao(EleicaoModel votacao);
+        Task AdicionarEleicao(EleicaoModel votacao);
+        Task<EleicaoModel?> ObterVotacaoPorId(Guid? id);
         Task<List<CandidatoModel>> BuscarTodosCandidato();
         Task<CandidatoModel> BuscarCandidatoPorId(Guid id);
+        Task<IEnumerable<EleicaoModel>> ObterTodasEleicoes();
+        Task<List<CandidatoModel>> BuscarCandidatoPorEleicao(Guid eleicaoId);
     }
 }

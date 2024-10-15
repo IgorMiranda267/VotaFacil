@@ -48,6 +48,11 @@ namespace VotaFacil.Apllication.Facade
           
             return  _mapper.Map<List<CandidatoDTO>>(candidatosList);
         }
+
+        public async Task<List<CandidatoModel>> BuscarCandidatoPorEleicao(Guid eleicaoId)
+        {
+            return await _eleicaoRepositorio.BuscarCandidatoPorEleicao(eleicaoId);
+        }
         #endregion CANDIDATO
 
         #region ELEIÇÂO

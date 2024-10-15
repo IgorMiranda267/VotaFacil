@@ -1,0 +1,16 @@
+﻿@model List<VotaFacil.Apllication.DTO.CandidatoDTO>
+
+@foreach (var candidato in Model)
+{
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <img src="@(candidato.FotoPath ?? Url.Content("~/images/default.jpg"))" class="card-img-top" alt="Foto do Candidato">
+            <div class="card-body">
+                <h5 class="card-title">@candidato.Nome</h5>
+                <p class="card-text"><strong>Votos: @candidato.Votos</strong></p>
+                <button class="btn btn-primary" onclick="loadVotos('@candidato.Id')">Ver Votos</button>
+                <div id="votosContainer_@candidato.Id"></div>
+            </div>
+        </div>
+    </div>
+}

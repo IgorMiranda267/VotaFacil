@@ -9,5 +9,6 @@ namespace VotaFacil.Apllication.DTO
         public string Descricao { get; set; }
         public IFormFile Foto { get; set; }
         public string? FotoPath { get; set; }
+        public int Votos { get; set; }
     }
 }

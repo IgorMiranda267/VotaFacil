@@ -54,6 +54,11 @@ namespace VotaFacil.WebUI.Controllers
             return RedirectToAction("EscolherEleicao", "Votacao");
         }
 
+        public IActionResult ResultadoEleicao()
+        {
+            return RedirectToAction("Index", "Resultado");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

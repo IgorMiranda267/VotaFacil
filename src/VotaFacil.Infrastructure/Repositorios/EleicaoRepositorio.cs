@@ -113,6 +113,13 @@ namespace VotaFacil.Infra.Data.Repositorios
         {
             return await _contexto.Candidatos.FindAsync(id);
         }
+
+        public async Task<List<CandidatoModel>> BuscarCandidatoPorEleicao(Guid eleicaoId)
+        {
+            return await _contexto.Candidatos
+                .Where(c => c.Votacoes.Any(e => e.Id == eleicaoId))
+                .ToListAsync();
+        }
         #endregion CANDIDATO
     }
 }
