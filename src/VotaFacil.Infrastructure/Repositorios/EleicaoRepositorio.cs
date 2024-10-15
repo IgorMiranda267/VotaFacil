@@ -118,6 +118,7 @@ namespace VotaFacil.Infra.Data.Repositorios
         {
             return await _contexto.Candidatos
                 .Where(c => c.Votacoes.Any(e => e.Id == eleicaoId))
+                .Include(v => v.Votos)
                 .ToListAsync();
         }
         #endregion CANDIDATO

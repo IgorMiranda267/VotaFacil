@@ -155,11 +155,12 @@ namespace VotaFacil.WebUI.Controllers
                     }
 
                     var verificarVoto = await _votoFacade.VerificarVoto(eleicaoId, eleitorId.Value);
-                    if (verificarVoto != null && verificarVoto.CandidatoId == candidatoId)
+                    if (verificarVoto?.CandidatoId != null)
                     {
-                        var message = $"{verificarVoto.Eleitor.Nome} já votou nessa eleição. " +
-                                      $"Hash do voto {verificarVoto.HashAtual} " +
-                                      $"Eleição {verificarVoto.Votacao.Id}";
+                        var message = $"{verificarVoto.Eleitor.Nome} você já votou nessa eleição.<br>" +
+                                      $"Candidato: {verificarVoto.Candidato.Nome}.<br>" +
+                                      $"Hash do voto: {verificarVoto.HashAtual}.<br>" +
+                                      $"Bloco: {verificarVoto.NumeroBloco}";
                         return Json(new { success = false, message, canVote = false });
                     }
 

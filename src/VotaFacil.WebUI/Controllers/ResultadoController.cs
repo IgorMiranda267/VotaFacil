@@ -22,7 +22,20 @@ namespace VotaFacil.WebUI.Controllers
             IEnumerable<EleicaoModel> eleicoesConcluidas = await _eleicao.ObterTodasEleicoes();
             var eleicoesComCandidatos = eleicoesConcluidas
                 .Where(e => e.Candidatos != null && e.Candidatos.Any())
-                .ToList();
+                .Select(e => new EleicaoModel
+                {
+                    Id = e.Id,
+                    Nome = e.Nome,
+                    Descricao = e.Descricao,
+                    ContractAddress = e.ContractAddress,
+                    TransactionHash = e.TransactionHash,
+                    BlockNumberString = e.BlockNumberString,
+                    GasUsedString = e.GasUsedString,
+                    Candidatos = e.Candidatos,
+                    Votos = e.Votos,
+                    Status = e.Fim > DateTime.Now ? "Em Andamento" : "Finalizada"
+                })
+            .ToList();
 
             return View("ResultadoVotacao", eleicoesComCandidatos);
         }

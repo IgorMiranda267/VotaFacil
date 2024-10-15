@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using VotaFacil.Domain.Entidades;
 
 namespace VotaFacil.Apllication.DTO
 {
@@ -9,6 +10,6 @@ namespace VotaFacil.Apllication.DTO
         public string Descricao { get; set; }
         public IFormFile Foto { get; set; }
         public string? FotoPath { get; set; }
-        public int Votos { get; set; }
+        public List<VotoModel> Votos { get; set; }
     }
 }

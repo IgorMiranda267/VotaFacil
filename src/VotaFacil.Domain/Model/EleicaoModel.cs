@@ -24,20 +24,18 @@ namespace VotaFacil.Domain.Entidades
         [Column("block_number")] public string BlockNumberString { get; set; }
         [Column("gas_used")] public string GasUsedString { get; set; }
 
-        [NotMapped]
-        public HexBigInteger BlockNumber
+        [NotMapped] public HexBigInteger BlockNumber
         {
             get => new HexBigInteger(BlockNumberString);
             set => BlockNumberString = value.Value.ToString();
         }
 
-        [NotMapped]
-        public HexBigInteger GasUsed
+        [NotMapped] public HexBigInteger GasUsed
         {
             get => new HexBigInteger(GasUsedString);
             set => GasUsedString = value.Value.ToString();
         }
-
+        [NotMapped] public string Status { get; set; }
         public ICollection<CandidatoModel> Candidatos { get; set; } = new List<CandidatoModel>(); // Relação com CandidatoModel
 
         public ICollection<VotoModel> Votos { get; set; } = new List<VotoModel>(); // Relação com VotoModel
