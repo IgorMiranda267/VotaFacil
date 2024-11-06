@@ -5,15 +5,17 @@ namespace VotaFacil.Apllication.Facade
 {
     public class VotoFacade
     {
+        private readonly IEleitorRepositorio _eleitorRepositorio;
         private readonly IVotoRepositorio _votoRepositorio;
         private readonly IEthereumService _ethereumService;
         private readonly IEleicaoRepositorio _eleicaoRepositorio;
 
-        public VotoFacade(IVotoRepositorio votoRepositorio, IEthereumService ethereumService, IEleicaoRepositorio eleicaoRepositorio)
+        public VotoFacade(IVotoRepositorio votoRepositorio, IEthereumService ethereumService, IEleicaoRepositorio eleicaoRepositorio, IEleitorRepositorio eleitorRepositorio)
         {
             _votoRepositorio = votoRepositorio;
             _ethereumService = ethereumService;
             _eleicaoRepositorio = eleicaoRepositorio;
+            _eleitorRepositorio = eleitorRepositorio;
         }
 
         public async Task<bool> AdicionarVoto(Guid eleitorId, Guid candidatoId, Guid eleicaoId) ////Guid eleitorId, Guid opcaoVotoId, string hashAnterior
@@ -22,10 +24,12 @@ namespace VotaFacil.Apllication.Facade
             var hashAnterior = await _ethereumService.GetLatestBlockHashAsync();
 
             var eleicao = await _eleicaoRepositorio.ObterVotacaoPorId(eleicaoId);
+            var eleitor = await _eleitorRepositorio.ObterEleitorPorId(eleitorId);
 
-            var voto = new VotoModel(eleitorId, candidatoId, eleicaoId, hashAnterior, numeroBloco);
+            var txHashs = await _ethereumService.EnviarVotoAsync(eleicao.ContractAddress, eleitorId, candidatoId, hashAnterior, numeroBloco, eleitor.ChavePrivada);
             var txHash = await _ethereumService.EnviarVotoAsync(eleicao.ContractAddress, eleitorId, candidatoId, hashAnterior, numeroBloco);
 
+            var voto = new VotoModel(eleitorId, candidatoId, eleicaoId, hashAnterior, numeroBloco, txHashs.SignedTransaction);
             return await _votoRepositorio.AdicionarVoto(voto);
         }
 

@@ -1,8 +1,10 @@
 ﻿@{
     var path = Context.Request.Path.ToString();
     var isLoginPage = string.Equals(path, "/", StringComparison.OrdinalIgnoreCase) ||
+                      string.Equals(path, "/Login", StringComparison.OrdinalIgnoreCase) ||
                       string.Equals(path, "/Login/Logout", StringComparison.OrdinalIgnoreCase) ||
-                      string.Equals(path, "/Eleitor", StringComparison.OrdinalIgnoreCase);
+                      string.Equals(path, "/Eleitor", StringComparison.OrdinalIgnoreCase) ||
+                      string.Equals(path, "/Login/VerificarCodigo", StringComparison.OrdinalIgnoreCase);
 }
 
 

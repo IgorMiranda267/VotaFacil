@@ -17,6 +17,7 @@ namespace VotaFacil.Domain.Entidades
         [Column("hash_anterior"), MaxLength(200)] public string HashAnterior { get; private set; }
         [Column("hash_atual"), MaxLength(200)] public string HashAtual { get; private set; }
         [Column("numero_bloco"), Required] public string NumeroBloco { get; private set; }
+        [Column("assinatura"), MaxLength(500)] public string Assinatura { get; private set; }
 
         public EleicaoModel Votacao { get; set; }
         public EleitorModel Eleitor { get; set; }
@@ -24,7 +25,7 @@ namespace VotaFacil.Domain.Entidades
 
         public VotoModel() { }
 
-        public VotoModel(Guid eleitorId, Guid candidatoId, Guid votacaoId, string hashAnterior, string numeroBloco)
+        public VotoModel(Guid eleitorId, Guid candidatoId, Guid votacaoId, string hashAnterior, string numeroBloco, string assinatura)
         {
             Id = Guid.NewGuid();
             EleitorId = eleitorId;
@@ -34,6 +35,7 @@ namespace VotaFacil.Domain.Entidades
             HashAnterior = hashAnterior;
             HashAtual = GerarHash();
             NumeroBloco = numeroBloco;
+            Assinatura = assinatura;
         }
 
         private string GerarHash()

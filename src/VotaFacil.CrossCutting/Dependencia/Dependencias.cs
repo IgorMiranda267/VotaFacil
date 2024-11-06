@@ -1,11 +1,8 @@
-﻿// C#
-using Amazon.Extensions.NETCore.Setup;
-using Amazon.Runtime;
+﻿using Amazon.Runtime;
 using Amazon.S3;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Linq;
 using VotaFacil.Apllication.Controller;
 using VotaFacil.Apllication.Facade;
 using VotaFacil.Apllication.Mapper;
@@ -40,10 +37,15 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
 
         private static void Repositorios(IServiceCollection services)
         {
+            var secretKey = Environment.GetEnvironmentVariable("SECRET_KEY_TOTP") ?? throw new ArgumentException("SECRET_KEY_TOTP não pode ser nulo.");
+
             services.AddScoped<IEleitorRepositorio, EleitorRepositorio>();
             services.AddScoped<IEleicaoRepositorio, EleicaoRepositorio>();
             services.AddScoped<ILoginRepositorio, LoginRepositorio>();
             services.AddScoped<IVotoRepositorio, VotoRepositorio>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<ITotpService>(provider => new TotpService(secretKey));
+
         }
 
         private static void Facade(IServiceCollection services)
@@ -71,7 +73,7 @@ namespace VotaFacil.Infra.CrossCutting.Dependencia
             var id = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_ID_ACCOUNT") ?? throw new ArgumentException("INFURA_ETHEREUM_ID_ACCOUNT não pode ser nulo.");
             var url = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS") ?? throw new ArgumentException("INFURA_ETHEREUM_CONTRACT_ADDRESS não pode ser nulo.");
             var carteira = Environment.GetEnvironmentVariable("META_MASK_WALLET_ADDRESS") ?? throw new ArgumentException("META_MASK_WALLET_ADDRESS não pode ser nulo.");
-            var chavePrivada = Environment.GetEnvironmentVariable("META_MASK_ETHEREUM_PRIVATE_KEY") ?? throw new ArgumentException("INFURA_ETHEREUM_PRIVATE_KEY não pode ser nulo.");
+            var chavePrivada = Environment.GetEnvironmentVariable("META_MASK_ETHEREUM_PRIVATE_KEY") ?? throw new ArgumentException("META_MASK_ETHEREUM_PRIVATE_KEY não pode ser nulo.");
             var contratoInteligente = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS") ?? throw new ArgumentException("INFURA_ETHEREUM_CONTRACT_ADDRESS não pode ser nulo.");
 
             services.AddScoped<IEthereumService>(provider => new EthereumService(

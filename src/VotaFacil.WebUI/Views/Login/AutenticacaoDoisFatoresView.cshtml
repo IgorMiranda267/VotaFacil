@@ -1,0 +1,20 @@
+﻿@model VotaFacil.WebUI.Models.AutenticacaoDoisFatoresModel
+
+<h2>Verificação de Dois Fatores</h2>
+
+<form asp-action="VerificarCodigo" method="post">
+    <input type="hidden" asp-for="Username" />
+    <div>
+        <label for="CodigoVerificacao">Código de Verificação</label>
+        <input type="text" asp-for="CodigoVerificacao" />
+    </div>
+    <button type="submit">Verificar</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}

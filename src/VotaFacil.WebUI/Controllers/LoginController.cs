@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VotaFacil.Apllication.Controller;
+using VotaFacil.Apllication.Facade;
+using VotaFacil.Domain.Interfaces;
+using VotaFacil.Infrastructure.Service;
 using VotaFacil.WebUI.Models;
 
 namespace VotaFacil.WebUI.Controllers
@@ -7,10 +10,14 @@ namespace VotaFacil.WebUI.Controllers
     public class LoginController : Controller
     {
         private readonly LoginFacade _loginFacade;
+        private readonly IJwtTokenService _jwtTokenValidator;
+        private readonly EleitorFacade _eleitor;
 
-        public LoginController(LoginFacade loginFacade)
+        public LoginController(LoginFacade loginFacade, IJwtTokenService jwtTokenService, EleitorFacade eleitorFacade)
         {
             _loginFacade = loginFacade;
+            _jwtTokenValidator = jwtTokenService;
+            _eleitor = eleitorFacade;
         }
 
         public IActionResult Index()
@@ -39,12 +46,21 @@ namespace VotaFacil.WebUI.Controllers
             try
             {
                 var (success, token) = await _loginFacade.Login(model.Username, model.Password);
+                var eleitorId = _jwtTokenValidator.ObterEleitorIdDoToken(token);
+                var eleitor = await _eleitor.ObterEleitorPorId(eleitorId.Value);
 
                 if (success)
                 {
+                    var codigoVerificacao = _loginFacade.GenerateCode();
+                    await _loginFacade.SendEmailAsync(eleitor.Email, "Código de verificação", codigoVerificacao);
+
                     // Armazene o token em um cookie ou no local storage, conforme necessário
                     Response.Cookies.Append("AuthToken", token, new CookieOptions { HttpOnly = true, Secure = true });
-                    return RedirectToAction("Index", "Home");
+
+                    // Redireciona para a página de verificação de código
+                    return RedirectToAction("VerificarCodigo", new { username = model.Username });
+
+                    //return RedirectToAction("Index", "Home");
                 }
 
                 ViewBag.ErrorMessage = "Login inválido, tente novamente!";
@@ -56,6 +72,25 @@ namespace VotaFacil.WebUI.Controllers
                 ViewBag.ErrorMessage = "Login inválido, tente novamente!";
                 return View("Login");
             }
+        }
+
+        [HttpGet]
+        public IActionResult VerificarCodigo(string username)
+        {
+            return View("AutenticacaoDoisFatoresView");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerificarCodigo(AutenticacaoDoisFatoresModel model)
+        {
+            if (_loginFacade.VerifyCode(model.CodigoVerificacao))
+            {
+                // Código verificado com sucesso
+                return RedirectToAction("Index", "Home");
+            }
+
+            ViewBag.ErrorMessage = "Código de verificação inválido.";
+            return View("AutenticacaoDoisFatoresView");
         }
     }
 }

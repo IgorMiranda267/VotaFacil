@@ -81,6 +81,7 @@ namespace VotaFacil.Apllication.Facade
 
         public async Task<IEnumerable<EleicaoModel>> ObterTodasEleicoes()
         {
+            //var x = await _ethereumService.ConsultarVotoAsync("0x92f1bdf80281d7aaeb7f1c9bba8b693930c3c735907c6e6c5e0b0b0d3352a530");
             return await _eleicaoRepositorio.ObterTodasEleicoes();
         }
 

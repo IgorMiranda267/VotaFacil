@@ -14,6 +14,10 @@
         @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.CPF)
         @Html.TextBoxFor(m => m.CPF, new { @class = "form-control" })
     </div>

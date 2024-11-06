@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		..\Dockerfile = ..\Dockerfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotaFacil.Testes", "VotaFacil.Testes\VotaFacil.Testes.csproj", "{A7AC27DE-F3D6-4071-92EC-6CE81EC2272A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E36EDFD-8C59-4DF6-9B15-B644391A3E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7AC27DE-F3D6-4071-92EC-6CE81EC2272A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7AC27DE-F3D6-4071-92EC-6CE81EC2272A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7AC27DE-F3D6-4071-92EC-6CE81EC2272A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7AC27DE-F3D6-4071-92EC-6CE81EC2272A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

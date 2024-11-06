@@ -1,4 +1,5 @@
 ﻿using Nethereum.Web3;
+using Nethereum.Signer;
 using Newtonsoft.Json.Linq;
 using VotaFacil.Domain.DTO;
 using Nethereum.Hex.HexTypes;
@@ -6,6 +7,8 @@ using Nethereum.RPC.Eth.DTOs;
 using VotaFacil.Domain.Model;
 using VotaFacil.Domain.Interfaces;
 using VotaFacil.Infrastructure.Service.SmartContract.DTO;
+using Nethereum.ABI.FunctionEncoding;
+using Nethereum.ABI.Model;
 
 namespace VotaFacil.Infrastructure.Service
 {
@@ -15,37 +18,120 @@ namespace VotaFacil.Infrastructure.Service
         private static readonly HttpClient client = new HttpClient();
         private readonly string _infuraUrl;
         private const string ABI = @"[
+        {
+            ""inputs"": [
                 {
-                    'constant': false,
-                    'inputs': [
-                        { 'name': 'eleitorId', 'type': 'bytes32' },
-                        { 'name': 'opcaoVotoId', 'type': 'bytes32' },
-                        { 'name': 'hashAnterior', 'type': 'string' },
-                        { 'name': 'numeroBloco', 'type': 'string' }
-                    ],
-                    'name': 'votar',
-                    'outputs': [],
-                    'payable': false,
-                    'stateMutability': 'nonpayable',
-                    'type': 'function'
+                    ""internalType"": ""bytes32"",
+                    ""name"": ""id"",
+                    ""type"": ""bytes32""
                 },
                 {
-                    'constant': true,
-                    'inputs': [
-                        { 'name': 'eleitorId', 'type': 'bytes32' }
-                    ],
-                    'name': 'consultarVoto',
-                    'outputs': [
-                        { 'name': '', 'type': 'string' }
-                    ],
-                    'payable': false,
-                    'stateMutability': 'view',
-                    'type': 'function'
+                    ""internalType"": ""string"",
+                    ""name"": ""nome"",
+                    ""type"": ""string""
                 }
-            ]";
+            ],
+            ""stateMutability"": ""nonpayable"",
+            ""type"": ""constructor""
+        },
+        {
+            ""constant"": true,
+            ""inputs"": [],
+            ""name"": ""id"",
+            ""outputs"": [
+                {
+                    ""name"": """",
+                    ""type"": ""bytes32""
+                }
+            ],
+            ""payable"": false,
+            ""stateMutability"": ""view"",
+            ""type"": ""function""
+        },
+        {
+            ""constant"": true,
+            ""inputs"": [],
+            ""name"": ""nome"",
+            ""outputs"": [
+                {
+                    ""name"": """",
+                    ""type"": ""string""
+                }
+            ],
+            ""payable"": false,
+            ""stateMutability"": ""view"",
+            ""type"": ""function""
+        },
+        {
+            ""constant"": false,
+            ""inputs"": [
+                {
+                    ""name"": ""eleitorId"",
+                    ""type"": ""bytes32""
+                },
+                {
+                    ""name"": ""opcaoVotoId"",
+                    ""type"": ""bytes32""
+                },
+                {
+                    ""name"": ""hashAnterior"",
+                    ""type"": ""string""
+                },
+                {
+                    ""name"": ""numeroBloco"",
+                    ""type"": ""string""
+                }
+            ],
+            ""name"": ""votar"",
+            ""outputs"": [],
+            ""payable"": false,
+            ""stateMutability"": ""nonpayable"",
+            ""type"": ""function""
+        },
+        {
+            ""constant"": true,
+            ""inputs"": [
+                {
+                    ""name"": ""eleitorId"",
+                    ""type"": ""bytes32""
+                }
+            ],
+            ""name"": ""consultarVotos"",
+            ""outputs"": [
+                {
+                    ""components"": [
+                        {
+                            ""name"": ""eleitorId"",
+                            ""type"": ""bytes32""
+                        },
+                        {
+                            ""name"": ""opcaoVotoId"",
+                            ""type"": ""bytes32""
+                        },
+                        {
+                            ""name"": ""hashAnterior"",
+                            ""type"": ""string""
+                        },
+                        {
+                            ""name"": ""numeroBloco"",
+                            ""type"": ""string""
+                        }
+                    ],
+                    ""name"": """",
+                    ""type"": ""tuple[]""
+                }
+            ],
+            ""payable"": false,
+            ""stateMutability"": ""view"",
+            ""type"": ""function""
+        }
+    ]";
         private readonly string _contractAddress;
         private readonly string _accountAddress;
         private readonly string _privateKey;
+
+        private readonly string id = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_ID_ACCOUNT") ?? throw new ArgumentException("INFURA_ETHEREUM_ID_ACCOUNT não pode ser nulo.");
+        private readonly string url = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS") ?? throw new ArgumentException("INFURA_ETHEREUM_CONTRACT_ADDRESS não pode ser nulo.");
 
         public EthereumService(string url, string contractAddress, string accountAddress, string privateKey)
         {
@@ -76,13 +162,95 @@ namespace VotaFacil.Infrastructure.Service
 
 
         #region ELEIÇÂO
-        public async Task<string> ConsultarVotoAsync(Guid eleitorId)
+        public async Task<string> ConsultarVotoAsync(string transactionHash)
         {
-            var contrato = _web3.Eth.GetContract(ABI, _contractAddress);
-            var funcaoConsultarVoto = contrato.GetFunction("consultarVoto");
+            // Obter a transação pelo hash
+            var transaction = await _web3.Eth.Transactions.GetTransactionByHash.SendRequestAsync(transactionHash);
 
-            var resultado = await funcaoConsultarVoto.CallAsync<string>(eleitorId);
-            return resultado;
+            if (transaction == null)
+            {
+                throw new Exception("Transação não encontrada");
+            }
+
+            // Definir a ABI da função
+            var functionABI = new FunctionABI("consultarVotos", false)
+            {
+                InputParameters = new[]
+                {
+                    new Parameter("bytes32", "eleitorId", 1)
+                }
+            };
+
+            // Extrair a assinatura sha3 da função
+            var sha3Signature = functionABI.Sha3Signature;
+
+            // Decodificar os dados da entrada da transação
+            var functionCallDecoder = new FunctionCallDecoder();
+            var decodedInput = functionCallDecoder.DecodeFunctionInput(sha3Signature, transaction.Input, functionABI.InputParameters);
+
+            if (decodedInput == null)
+            {
+                throw new Exception("Falha ao decodificar a entrada da transação");
+            }
+
+            // Extrair os parâmetros decodificados
+            var eleitorId = decodedInput[0].Result.ToString();
+
+            return eleitorId;
+        }
+
+        public async Task<(string TransactionHash, string SignedTransaction)> EnviarVotoAsync(string enderecoContrato, Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco, string chavePrivadaEleitor)
+        {
+            try
+            {
+                var eleitorIdBytes = eleitorId.ToByteArray();
+                var opcaoVotoIdBytes = opcaoVotoId.ToByteArray();
+
+                var votarFunction = new VotarFunctionDTO
+                {
+                    EleitorId = eleitorId.ToByteArray(),
+                    OpcaoVotoId = opcaoVotoId.ToByteArray(),
+                    HashAnterior = hashAnterior,
+                    NumeroBloco = numeroBloco
+                };
+
+                // Cria a conta com a chave privada do eleitor
+                var account = new Nethereum.Web3.Accounts.Account(chavePrivadaEleitor);
+                var web3 = new Web3(account, $"{url}{id}");
+
+                // Obter o GasPrice atual da rede
+                var gasPrice = await web3.Eth.GasPrice.SendRequestAsync();
+                var nonce = await web3.Eth.Transactions.GetTransactionCount.SendRequestAsync(account.Address);
+
+                // Cria o manipulador da transação
+                var handler = web3.Eth.GetContractTransactionHandler<VotarFunctionDTO>();
+
+                // Cria a transação e estima o gás
+                var transactionInput = await handler.CreateTransactionInputEstimatingGasAsync(enderecoContrato, votarFunction);
+                // Defina explicitamente o GasPrice no transactionInput
+                transactionInput.GasPrice = gasPrice;
+                transactionInput.Nonce = nonce;
+                // Assina a transação manualmente para obter a transação assinada em formato hexadecimal
+                var signer = new LegacyTransactionSigner();
+
+                // Assina a transação
+                var signedTransaction = signer.SignTransaction(account.PrivateKey,
+                                                               transactionInput.To,
+                                                               transactionInput.Value,
+                                                               transactionInput.Nonce,
+                                                               transactionInput.GasPrice,
+                                                               transactionInput.Gas);
+
+                // Envia a transação assinada para a rede
+                var transactionHash = await web3.Eth.Transactions.SendRawTransaction.SendRequestAsync(signedTransaction);
+
+                // Retorna o hash da transação e a transação assinada
+                return (transactionHash, "signedTransaction");
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
         }
 
         public async Task<string> EnviarVotoAsync(string enderecoContrato, Guid eleitorId, Guid opcaoVotoId, string hashAnterior, string numeroBloco)

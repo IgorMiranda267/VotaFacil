@@ -22,6 +22,7 @@ namespace VotaFacil.Apllication.Facade
         {
             var eleitorModel = new EleitorModel(
                 eleitor.Nome,
+                eleitor.Email,
                 eleitor.CPF,
                 eleitor.Identificador,
                 eleitor.EnderecoEthereum,

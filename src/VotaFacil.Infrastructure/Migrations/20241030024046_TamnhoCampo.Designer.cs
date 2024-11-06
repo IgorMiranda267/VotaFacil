@@ -3,6 +3,7 @@ using System;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VotaFacil.Infra.Data.Contexto;
@@ -12,9 +13,11 @@ using VotaFacil.Infra.Data.Contexto;
 namespace VotaFacil.Infrastructure.Migrations
 {
     [DbContext(typeof(VotacaoContext))]
-    partial class VotacaoContextModelSnapshot : ModelSnapshot
+    [Migration("20241030024046_TamnhoCampo")]
+    partial class TamnhoCampo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,22 +125,11 @@ namespace VotaFacil.Infrastructure.Migrations
                         .HasColumnType("character varying(4096)")
                         .HasColumnName("chave_publica");
 
-                    b.Property<string>("CodigoVerificacao")
-                        .HasMaxLength(6)
-                        .HasColumnType("character varying(6)")
-                        .HasColumnName("codigo_verificacao");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("character varying(11)")
                         .HasColumnName("cpf");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("email");
 
                     b.Property<string>("EnderecoEthereum")
                         .HasMaxLength(100)

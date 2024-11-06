@@ -36,13 +36,15 @@ namespace VotaFacil.WebUI.Controllers
         public async Task<IActionResult> CadastrarCandidato()
         {
             var eleicoes = await _eleicaoFacade.ObterTodasEleicoes();
-            if (!eleicoes.Any())
+            var eleicoesValidas = eleicoes.Where(e => e.Inicio > DateTime.Now && e.Fim > DateTime.Now).ToList();
+            if (!eleicoesValidas.Any())
             {
                 ViewBag.ErrorMessage = "Não há eleições cadastradas. Cadastre uma eleição primeiro.";
+                TempData["ErrorMessage"] = "Não há eleições cadastradas. Cadastre uma eleição primeiro.";
                 return View("CadastrarEleicao");
             }
 
-            ViewBag.Eleicoes = eleicoes;
+            ViewBag.Eleicoes = eleicoesValidas;
             return View("CadastrarCandidato");
         }
 
@@ -65,7 +67,7 @@ namespace VotaFacil.WebUI.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     ViewBag.ErrorMessage = "Preencha os dados corretamente!";
                     return View("CadastrarCandidato");
@@ -85,7 +87,7 @@ namespace VotaFacil.WebUI.Controllers
                 model.FotoPath = imageUrl;
                 var result = await _eleicaoFacade.AdicionarCandidato(model, eleicao);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
 
             }
             catch (Exception ex)
@@ -136,7 +138,7 @@ namespace VotaFacil.WebUI.Controllers
             }
 
             await _eleicaoFacade.CadastrarEleicao(eleicao);
-            return View("CadastrarEleicao");
+            return RedirectToAction("CadastrarCandidato");
         }
         #endregion ELEIÇÂO
 
