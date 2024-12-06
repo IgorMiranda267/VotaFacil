@@ -39,7 +39,7 @@ namespace VotaFacil.Domain.Entidades
 
             Id = Guid.NewGuid();
             Nome = nome;
-            Email = Email;
+            Email = email;
             Cpf = cpf;
             Identificador = identificador;
             EnderecoEthereum = enderecoEthereum;

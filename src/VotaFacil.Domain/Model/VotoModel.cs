@@ -38,7 +38,7 @@ namespace VotaFacil.Domain.Entidades
             Assinatura = assinatura;
         }
 
-        private string GerarHash()
+        public string GerarHash()
         {
             using (SHA256 sha256 = SHA256.Create())
             {
