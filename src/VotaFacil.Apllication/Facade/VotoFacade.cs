@@ -26,10 +26,9 @@ namespace VotaFacil.Apllication.Facade
             var eleicao = await _eleicaoRepositorio.ObterVotacaoPorId(eleicaoId);
             var eleitor = await _eleitorRepositorio.ObterEleitorPorId(eleitorId);
 
-            var txHashs = await _ethereumService.EnviarVotoAsync(eleicao.ContractAddress, eleitorId, candidatoId, hashAnterior, numeroBloco, eleitor.ChavePrivada);
             var txHash = await _ethereumService.EnviarVotoAsync(eleicao.ContractAddress, eleitorId, candidatoId, hashAnterior, numeroBloco);
 
-            var voto = new VotoModel(eleitorId, candidatoId, eleicaoId, hashAnterior, numeroBloco, txHashs.SignedTransaction);
+            var voto = new VotoModel(eleitorId, candidatoId, eleicaoId, hashAnterior, numeroBloco, txHash);
             return await _votoRepositorio.AdicionarVoto(voto);
         }
 

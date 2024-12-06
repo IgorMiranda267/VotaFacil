@@ -9,6 +9,8 @@ using VotaFacil.Domain.Interfaces;
 using VotaFacil.Infrastructure.Service.SmartContract.DTO;
 using Nethereum.ABI.FunctionEncoding;
 using Nethereum.ABI.Model;
+using Nethereum.BlockchainProcessing.BlockStorage.Entities;
+using EllipticCurve;
 
 namespace VotaFacil.Infrastructure.Service
 {
@@ -208,44 +210,17 @@ namespace VotaFacil.Infrastructure.Service
 
                 var votarFunction = new VotarFunctionDTO
                 {
-                    EleitorId = eleitorId.ToByteArray(),
-                    OpcaoVotoId = opcaoVotoId.ToByteArray(),
+                    EleitorId = eleitorIdBytes,
+                    OpcaoVotoId = opcaoVotoIdBytes,
                     HashAnterior = hashAnterior,
                     NumeroBloco = numeroBloco
                 };
+                Web3 web3 = new Web3(new ContaEthereumModel(chavePrivadaEleitor), url);
 
-                // Cria a conta com a chave privada do eleitor
-                var account = new Nethereum.Web3.Accounts.Account(chavePrivadaEleitor);
-                var web3 = new Web3(account, $"{url}{id}");
+                var transactionReceipt = await web3.Eth.GetContractTransactionHandler<VotarFunctionDTO>()
+                    .SendRequestAndWaitForReceiptAsync("0x1bd6a8a2db0033009fcb07db8420530c1edd6a89", votarFunction);
 
-                // Obter o GasPrice atual da rede
-                var gasPrice = await web3.Eth.GasPrice.SendRequestAsync();
-                var nonce = await web3.Eth.Transactions.GetTransactionCount.SendRequestAsync(account.Address);
-
-                // Cria o manipulador da transação
-                var handler = web3.Eth.GetContractTransactionHandler<VotarFunctionDTO>();
-
-                // Cria a transação e estima o gás
-                var transactionInput = await handler.CreateTransactionInputEstimatingGasAsync(enderecoContrato, votarFunction);
-                // Defina explicitamente o GasPrice no transactionInput
-                transactionInput.GasPrice = gasPrice;
-                transactionInput.Nonce = nonce;
-                // Assina a transação manualmente para obter a transação assinada em formato hexadecimal
-                var signer = new LegacyTransactionSigner();
-
-                // Assina a transação
-                var signedTransaction = signer.SignTransaction(account.PrivateKey,
-                                                               transactionInput.To,
-                                                               transactionInput.Value,
-                                                               transactionInput.Nonce,
-                                                               transactionInput.GasPrice,
-                                                               transactionInput.Gas);
-
-                // Envia a transação assinada para a rede
-                var transactionHash = await web3.Eth.Transactions.SendRawTransaction.SendRequestAsync(signedTransaction);
-
-                // Retorna o hash da transação e a transação assinada
-                return (transactionHash, "signedTransaction");
+                return (transactionReceipt.TransactionHash, "signedTransaction");
             }
             catch (Exception ex)
             {
@@ -277,7 +252,6 @@ namespace VotaFacil.Infrastructure.Service
             {
                 throw new InvalidOperationException( ex.Message); 
             }
-
         }
 
         public async Task<List<VotoRegistradoEventDTO>> GetVotosRegistradosAsync(string transactionHash)
