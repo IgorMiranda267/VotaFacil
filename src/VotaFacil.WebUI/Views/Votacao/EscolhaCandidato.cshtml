@@ -1,24 +1,30 @@
 ﻿@model IEnumerable<VotaFacil.Apllication.DTO.CandidatoDTO>
 
 @{
-    ViewBag.Title = "EscolhaCandidato";
+    ViewBag.Title = "Escolha Candidato";
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
-    <h2>Votação</h2>
+    <h2>Escolha um Candidato</h2>
+
+    <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
+    <div id="successMessage" class="alert alert-success" style="display:none;"></div>
+
     <div class="row">
         @foreach (var candidato in Model)
 
         {
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="~/images/@(candidato.Foto != null ? candidato.Foto.FileName : "default.jpg")" class="card-img-top" alt="Foto do Candidato">
+                    <img src="@(candidato.FotoPath ?? Url.Content("~/images/default.jpg"))" class="card-img-top" alt="Foto do Candidato">
                     <div class="card-body">
                         <h5 class="card-title">@candidato.Nome</h5>
                         <p class="card-text">@candidato.Descricao</p>
-                        <a href="#" class="btn btn-primary">Votar</a>
+                        <form onsubmit="return votar(event, '@candidato.Id', '@ViewBag.EleicaoId')">
+                            <button type="submit" class="btn btn-primary votarBtn">Votar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -26,5 +32,125 @@
     </div>
 </div>
 
-<!-- Adicione o link para o Bootstrap no seu layout -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script>
+        function votar(event, candidatoId, eleicaoId) {
+        event.preventDefault();
+
+        $.ajax({
+            url: '@Url.Action("Votar", "Votacao")',
+        type: 'POST',
+        data: { candidatoId: candidatoId, eleicaoId: eleicaoId },
+        success: function (result) {
+            if (result.success) {
+                $('#successMessage').html(result.message).show();
+                $('#errorMessage').hide();
+            } else {
+                $('#errorMessage').html(result.message).show();
+                $('#successMessage').hide();
+                    $('.votarBtn').hide(); // Esconde todos os botões de votar
+            }
+        },
+        error: function (xhr, status, error) {
+            $('#errorMessage').text("Ocorreu um erro ao registrar o voto.").show();
+            $('#successMessage').hide();
+            }
+    });
+
+        return false;
+    }
+</script>
+
+
+@* @model VotaFacil.Apllication.DTO.ResultadoVotacaoDTO
+
+@{
+    ViewBag.Title = "Escolha Candidato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Escolha um Candidato</h2>
+
+    <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
+    <div id="successMessage" class="alert alert-success" style="display:none;"></div>
+
+    <div class="row">
+        @foreach (var candidato in Model.Candidatos)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="@(candidato.FotoPath ?? Url.Content("~/images/default.jpg"))" class="card-img-top" alt="Foto do Candidato">
+                    <div class="card-body">
+                        <h5 class="card-title">@candidato.Nome</h5>
+                        <p class="card-text">@candidato.Descricao</p>
+                        <form onsubmit="return votar(event, '@candidato.Id', '@ViewBag.EleicaoId')">
+                            <button type="submit" class="btn btn-primary votarBtn">Votar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h2>Eleições Concluídas</h2>
+    <div class="form-group">
+        <label for="eleicaoSelect">Selecione a Eleição:</label>
+        <select id="eleicaoSelect" class="form-control" onchange="loadCandidatos(this.value)">
+            <option value="">Selecione uma eleição</option>
+            @foreach (var eleicao in Model.EleicoesConcluidas)
+            {
+                <option value="@eleicao.Id">@eleicao.Nome</option>
+            }
+        }
+        </select>
+    </div>
+
+    <div id="candidatosContainer" class="row">
+        <!-- Os candidatos serão carregados aqui -->
+    </div>
+</div>
+
+<script>
+    function loadCandidatos(eleicaoId) {
+        if (eleicaoId) {
+            $.get('/Resultado/GetCandidatos', { eleicaoId: eleicaoId }, function (data) {
+                $('#candidatosContainer').html(data);
+            });
+        } else {
+            $('#candidatosContainer').html('');
+        }
+    }
+
+    function loadVotos(candidatoId) {
+        $.get('/Resultado/GetVotos', { candidatoId: candidatoId }, function (data) {
+            $('#votosContainer_' + candidatoId).html(data);
+        });
+    }
+
+    function votar(e, candidatoId, eleicaoId) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '@Url.Action("Votar", "Votacao")',
+            type: 'POST',
+            data: { candidatoId: candidatoId, eleicaoId: eleicaoId },
+            success: function (result) {
+                if (result.success) {
+                    $('#successMessage').text(result.message).show();
+                    $('#errorMessage').hide();
+                } else {
+                    $('#errorMessage').text(result.message).show();
+                    $('#successMessage').hide();
+                    $('.votarBtn').hide(); // Esconde todos os botões de votar
+                }
+            },
+            error: function (xhr, status, error) {
+                $('#errorMessage').text("Ocorreu um erro ao registrar o voto.").show();
+                $('#successMessage').hide();
+            }
+        });
+
+        return false;
+    }
+</script>
+ *@

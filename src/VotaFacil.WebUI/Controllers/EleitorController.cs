@@ -28,7 +28,14 @@ namespace VotaFacil.WebUI.Controllers
                 return View("CadastrarEleitor");
             }
 
-            await _eleitor.CadastarEleitor(eleitor);
+            var (success, token) = await _eleitor.CadastarEleitor(eleitor);
+
+            if (success)
+            {
+                // Armazene o token em um cookie ou no local storage, conforme necessário
+                Response.Cookies.Append("AuthToken", token, new CookieOptions { HttpOnly = true, Secure = true });
+                return RedirectToAction("Index", "Home");
+            }
 
             return RedirectToAction("Index", "Home");
         }

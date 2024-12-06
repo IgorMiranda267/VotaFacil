@@ -1,0 +1,70 @@
+﻿@model IEnumerable<VotaFacil.Apllication.DTO.EleicaoDTO>
+
+@{
+    ViewBag.Title = "EscolherEleicao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Escolha uma Eleição</h2>
+    <div class="row">
+        @foreach (var eleicao in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@eleicao.Nome</h5>
+                        <p class="card-text">@eleicao.Descricao</p>
+                        <p class="card-text">Início: @eleicao.Inicio.ToString("dd/MM/yyyy HH:mm")</p>
+                        <p class="card-text">Fim: @eleicao.Fim.ToString("dd/MM/yyyy HH:mm")</p>
+                        <p class="card-text">Tempo Restante: <span id="timer-@eleicao.Id"></span></p>
+                        <a id="btn-@eleicao.Id" href="@Url.Action("EscolhaCandidato", "Votacao", new { eleicaoId = eleicao.Id })" class="btn btn-primary">Escolher</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function startCountdown(endTime, elementId, buttonId) {
+            function updateTimer() {
+                var now = new Date().getTime();
+                var distance = endTime - now;
+
+                if (distance < 0) {
+                    document.getElementById(elementId).innerHTML = "Expirado";
+                    document.getElementById(buttonId).innerHTML = "Resultado";
+                    document.getElementById(buttonId).href = "@Url.Action("Resultado", "Votacao", new { eleicaoId = "__ELEICAO_ID__" })".replace("__ELEICAO_ID__", buttonId.split('-')[1]);
+                    return;
+                }
+
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById(elementId).innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        @foreach (var eleicao in Model)
+        {
+            <text>
+                startCountdown(new Date('@eleicao.Fim.ToString("yyyy-MM-ddTHH:mm:ss")').getTime(), 'timer-@eleicao.Id', 'btn-@eleicao.Id');
+            </text>
+        }
+
+        // Exibir mensagem de erro se houver
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <text>
+                alert('@ViewBag.ErrorMessage');
+            </text>
+        }
+    </script>
+}

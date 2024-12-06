@@ -44,10 +44,21 @@ namespace VotaFacil.WebUI.Controllers
             return RedirectToAction("CadastrarCandidato", "Votacao");
         }
 
+        public IActionResult CadastrarEleicao()
+        {
+            return RedirectToAction("CadastrarEleicao", "Votacao");
+        }
+
         public IActionResult EscolhaCandidato()
         {
-            return RedirectToAction("EscolhaCandidato", "Votacao");
+            return RedirectToAction("EscolherEleicao", "Votacao");
         }
+
+        public IActionResult ResultadoEleicao()
+        {
+            return RedirectToAction("Index", "Resultado");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

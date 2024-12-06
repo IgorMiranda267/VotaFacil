@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "CadastrarEleitor";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Cadastrar Eleitor</h2>
@@ -12,6 +12,10 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Nome)
         @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.CPF)

@@ -3,6 +3,8 @@ using Nethereum.RPC.AccountSigning;
 using Nethereum.RPC.NonceServices;
 using Nethereum.RPC.TransactionManagers;
 using Nethereum.Signer;
+using Nethereum.Web3;
+using Nethereum.Web3.Accounts;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,16 +19,25 @@ namespace VotaFacil.Domain.Model
 
         [Required, Column("private_key"), MaxLength(64)] public string PrivateKey { get; private set; }
 
-        [NotMapped] public ITransactionManager TransactionManager => throw new NotImplementedException();
+        [NotMapped] public ITransactionManager TransactionManager { get; private set; }
 
-        [NotMapped] public INonceService NonceService { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        [NotMapped] public INonceService NonceService { get; set; }
 
-        [NotMapped] public IAccountSigningService AccountSigningService => throw new NotImplementedException();
+        [NotMapped] public IAccountSigningService AccountSigningService { get; private set; }
+        private readonly Web3 _web3;
 
         public ContaEthereumModel(string privateKey)
         {
+            var account = new Account(privateKey);
+            var id = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_ID_ACCOUNT") ?? throw new ArgumentException("INFURA_ETHEREUM_ID_ACCOUNT não pode ser nulo."); ;
+            var url = Environment.GetEnvironmentVariable("INFURA_ETHEREUM_CONTRACT_ADDRESS") ?? throw new ArgumentException("INFURA_ETHEREUM_CONTRACT_ADDRESS não pode ser nulo."); ;
+
             PrivateKey = privateKey;
             Address = new EthECKey(privateKey).GetPublicAddress();
+            _web3 = new Web3($"{url}{id}");
+            TransactionManager = account.TransactionManager;
+            NonceService = new InMemoryNonceService(Address, _web3.Client);
+            AccountSigningService = new AccountSigningService(_web3.Client);
         }
 
         public EthECKey GetKey()
